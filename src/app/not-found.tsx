@@ -1,4 +1,4 @@
-import { allPosts } from "content-collections";
+import { sortedPosts } from "@/lib/utils";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 };
 
 export default function NotFound() {
-  const latestPost = allPosts[0];
+  const latestPost = sortedPosts[0];
   return (
     <div className="relative flex min-h-screen flex-col">
       <div className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 flex w-full max-w-[432px] flex-col items-center justify-center">

@@ -2,7 +2,7 @@ import { MDX } from "@/components/mdx/mdx-components";
 import { BlogPagination } from "@/components/sections/blog-pagination";
 import { TableOfContents } from "@/components/sections/table-of-content";
 import { projectURL } from "@/lib/constants";
-import { allPosts } from "content-collections";
+import { sortedPosts } from "@/lib/utils";
 import { ChevronLeft, MoveLeft } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -14,7 +14,7 @@ interface BlogPage {
 }
 export async function generateMetadata({ params }: BlogPage): Promise<Metadata | undefined> {
   const { slug } = await params;
-  const post = allPosts.find((post) => post._meta.path === slug);
+  const post = sortedPosts.find((post) => post._meta.path === slug);
   if (!post) {
     return;
   }
@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: BlogPage): Promise<Metadata |
 
 export default async function BlogPage({ params }: BlogPage) {
   const { slug } = await params;
-  const post = allPosts.find((post) => post._meta.path === slug);
+  const post = sortedPosts.find((post) => post._meta.path === slug);
   if (!post) return notFound();
 
   const minutes = readingTime(post.content).minutes;
@@ -93,7 +93,7 @@ export default async function BlogPage({ params }: BlogPage) {
 
       <MDX code={post.mdx} />
       <div className="my-10 h-[0.5px] w-full shrink-0 border border-dashed" />
-      <BlogPagination posts={allPosts} />
+      <BlogPagination posts={sortedPosts} />
       <TableOfContents />
     </div>
   );
