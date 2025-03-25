@@ -1,0 +1,23 @@
+---
+description: 
+globs: *.ts,*.tsx
+alwaysApply: false
+---
+# TypeScript & Code Style Guidelines
+
+## Code Style and Structure
+- Write concise, technical TypeScript code with accurate examples.
+- Adopt functional and declarative programming patterns instead of class-based approaches.
+- Favor iteration and modularization to prevent code duplication.
+- Use descriptive variable names (e.g., `isLoading`, `hasError`) that clearly indicate their purpose.
+
+## Naming Conventions
+- Organize directories using lowercase with dashes (e.g., `components/auth-wizard`).
+- Favor named exports for components.
+- For functions and methods, use lowerCamelCase; for non-functions and templates, consider under_scored naming.
+- Use PascalCase for classes/constructors and ALL_UPPER for global variables when needed.
+
+## TypeScript Usage
+- Use TypeScript for all code, preferring interfaces over types to define object shapes.
+- Avoid enums; instead, use maps for constant lookups.
+- Write functional components utilizing TypeScript interfaces for props.

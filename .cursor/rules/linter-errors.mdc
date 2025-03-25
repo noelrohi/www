@@ -1,0 +1,34 @@
+---
+description: Linter Error Handling Guidelines
+globs: 
+alwaysApply: false
+---
+# Linter Error Handling Guidelines
+
+## 1. Missing Component Errors
+
+When you encounter an error such as:
+
+```
+Cannot find module '@/components/ui/button' or its corresponding type declarations.
+```
+
+- **If the component exists:**  
+  The issue is likely due to path resolution. Do **not** manually change the import paths. Instead, simply restart your TypeScript server in your editor to resolve the error.
+
+- **If the component is missing:**  
+  Add it using the command below:
+
+  ```bash
+  pnpm ui add button
+  ```
+
+## 2. CSS Class Ordering Errors
+
+If your linter highlights an error related to CSS class ordering, fix it by running the formatting tool:
+
+```bash
+pnpm fmt
+```
+
+This command automatically adjusts the CSS class ordering to meet the expected style.

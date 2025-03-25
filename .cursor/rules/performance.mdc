@@ -1,0 +1,31 @@
+---
+description: 
+globs: *.tsx
+alwaysApply: false
+---
+# Next.js, React & UI Performance Guidelines
+
+## Syntax and Formatting
+- Use the `function` keyword for pure functions.
+- Eliminate unnecessary curly braces in conditionals for a concise syntax.
+- Write declarative JSX to improve readability and maintainability.
+
+## UI and Styling
+- Use Shadcn UI, Radix UI, and Tailwind CSS for component styling.
+- Follow a mobile-first approach when implementing responsive designs.
+- To add Shadcn UI components, use the command:  
+  `pnpm ui add [component]`
+
+## Performance Optimization
+- Favor React Server Components (RSC) by minimizing `use client`, `useEffect`, and `setState` where possible.
+- Wrap non-critical client components in a `Suspense` component with an appropriate fallback.
+- Use dynamic loading for components that are not part of the initial render.
+- Optimize images by:
+  - Using WebP format,
+  - Including explicit size attributes,
+  - Implementing lazy loading.
+
+## Key Conventions
+- Manage URL search parameter state with `nuqs`.
+- Optimize for Web Vitals metrics such as LCP, CLS, and FID.
+- Restrict usage of `use client` to small components that require web API access rather than for data fetching or state management.
