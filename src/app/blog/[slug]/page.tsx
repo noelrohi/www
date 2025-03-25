@@ -12,6 +12,13 @@ import { readingTime } from "reading-time-estimator";
 interface BlogPage {
   params: Promise<{ slug: string }>;
 }
+
+export async function generateStaticParams() {
+  return sortedPosts.map((post) => ({
+    slug: post._meta.path,
+  }));
+}
+
 export async function generateMetadata({ params }: BlogPage): Promise<Metadata | undefined> {
   const { slug } = await params;
   const post = sortedPosts.find((post) => post._meta.path === slug);
