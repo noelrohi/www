@@ -7,13 +7,7 @@
     "build": "content-collections build && next build",
     "content-collections": "content-collections",
     "start": "next start",
-    "lint": "biome lint .",
-    "lint:write": "biome lint --write --unsafe .",
-    "format": "biome format .",
-    "format:write": "biome format --write .",
-    "code-check": "biome check .",
-    "code-check:write": "biome check --write --unsafe .",
-    "biome:ci": "biome ci .",
+    "fmt": "pnpm biome format . --write && pnpm biome check . --write --unsafe",
     "ui": "pnpm dlx shadcn@latest"
   },
   "dependencies": {

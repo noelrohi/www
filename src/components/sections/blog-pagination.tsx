@@ -1,6 +1,6 @@
 "use client";
 
-import { type Post } from "content-collections";
+import type { Post } from "content-collections";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -10,9 +10,7 @@ interface BlogPagination {
 
 export function BlogPagination({ posts }: BlogPagination) {
   const currentSlug = usePathname().split("/").pop();
-  const currentIndex = posts.findIndex(
-    (post) => post._meta.path === currentSlug,
-  );
+  const currentIndex = posts.findIndex((post) => post._meta.path === currentSlug);
   const next = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null;
   const previous = currentIndex > 0 ? posts[currentIndex - 1] : null;
 
@@ -29,10 +27,7 @@ export function BlogPagination({ posts }: BlogPagination) {
       )}
 
       {next && (
-        <Link
-          className="flex w-full flex-col gap-1 text-right"
-          href={`/blog/${next._meta.path}`}
-        >
+        <Link className="flex w-full flex-col gap-1 text-right" href={`/blog/${next._meta.path}`}>
           <span className="mb-1 text-muted-foreground">Next</span>
           <span className="font-medium ">{next.title}</span>
         </Link>

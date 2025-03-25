@@ -1,4 +1,4 @@
-const { withContentCollections } = require("@content-collections/next")
+const { withContentCollections } = require("@content-collections/next");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -7,11 +7,11 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "utfs.io"
-      }
-    ]
+        hostname: "utfs.io",
+      },
+    ],
   },
-}
+};
 
 // withContentCollections must be the outermost plugin
-module.exports = withContentCollections(nextConfig)
+module.exports = withContentCollections(nextConfig);

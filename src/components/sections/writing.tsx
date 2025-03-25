@@ -7,8 +7,8 @@ export function Writing() {
   return (
     <ShellSection index={5} title="Writing">
       <div className="grid grid-cols-1 gap-6 ">
-        {posts.map((post, index) => (
-          <Link key={index} href={`/blog/${post._meta.path}`}>
+        {posts.map((post) => (
+          <Link key={post._meta.path} href={`/blog/${post._meta.path}`}>
             <span className="text-muted-foreground">
               {new Date(post.time).toLocaleDateString()}
             </span>{" "}

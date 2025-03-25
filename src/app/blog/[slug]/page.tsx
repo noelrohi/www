@@ -4,7 +4,7 @@ import { TableOfContents } from "@/components/sections/table-of-content";
 import { projectURL } from "@/lib/constants";
 import { allPosts } from "content-collections";
 import { ChevronLeft, MoveLeft } from "lucide-react";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { readingTime } from "reading-time-estimator";
@@ -12,9 +12,7 @@ import { readingTime } from "reading-time-estimator";
 interface BlogPage {
   params: Promise<{ slug: string }>;
 }
-export async function generateMetadata({
-  params,
-}: BlogPage): Promise<Metadata | undefined> {
+export async function generateMetadata({ params }: BlogPage): Promise<Metadata | undefined> {
   const { slug } = await params;
   const post = allPosts.find((post) => post._meta.path === slug);
   if (!post) {
@@ -56,13 +54,13 @@ export default async function BlogPage({ params }: BlogPage) {
   const minutes = readingTime(post.content).minutes;
 
   return (
-    <div className="px-4 sm:px-7 py-4 animation-delay-300 w-full ">
-      <div className="w-fit top-[10rem] right-auto left-[2rem] hidden xl:top-[3rem] xl:left-[12rem] xl:right-auto xl:block fixed mt-0 h-full  justify-start space-y-4 transition text-[14px] ">
+    <div className="animation-delay-300 w-full px-4 py-4 sm:px-7 ">
+      <div className="fixed top-[10rem] right-auto left-[2rem] mt-0 hidden h-full w-fit justify-start space-y-4 text-[14px] transition xl:top-[3rem] xl:right-auto xl:left-[12rem] xl:block ">
         <Link
           href={"/"}
-          className="text-muted-foreground hover:text-primary items-center flex gap-2 cursor-pointer text-bold group"
+          className="group flex cursor-pointer items-center gap-2 text-bold text-muted-foreground hover:text-primary"
         >
-          <ChevronLeft className="size-4 ml-1 transition group-hover:-translate-x-1" />{" "}
+          <ChevronLeft className="group-hover:-translate-x-1 ml-1 size-4 transition" />{" "}
           <span>Back Home</span>
         </Link>
       </div>
@@ -70,14 +68,12 @@ export default async function BlogPage({ params }: BlogPage) {
       <div className="mb-8">
         <Link
           href={"/"}
-          className=" mb-4 xl:hidden text-muted-foreground hover:text-primary items-center flex gap-2 cursor-pointer text-bold group"
+          className=" group mb-4 flex cursor-pointer items-center gap-2 text-bold text-muted-foreground hover:text-primary xl:hidden"
         >
-          <MoveLeft className="size-4 ml-1 transition group-hover:-translate-x-1" />{" "}
+          <MoveLeft className="group-hover:-translate-x-1 ml-1 size-4 transition" />{" "}
           <span className="text-xs">Back Home</span>
         </Link>
-        <h1 className="font-medium  lg:leading-[1.1] text-lg mb-2">
-          {post.title}
-        </h1>
+        <h1 className="mb-2 font-medium text-lg lg:leading-[1.1]">{post.title}</h1>
         <div className=" flex flex-wrap items-center space-x-1.5 text-muted-foreground text-sm">
           <time dateTime="2024-10-06T00:00:00.000Z" className="block">
             {post.time}

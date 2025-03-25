@@ -55,11 +55,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         {/* <script src="https://unpkg.com/react-scan/dist/auto.global.js" async /> */}
-        <script
-          defer
-          src="https://assets.onedollarstats.com/stonks.js"
-          id="stonks"
-        ></script>
+        <script defer src="https://assets.onedollarstats.com/stonks.js" id="stonks" />
       </head>
       <body
         className={cn(
@@ -74,9 +70,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className="mx-auto w-full mb-16 max-w-screen-sm py-8">
-            {children}
-          </main>
+          <main className="mx-auto mb-16 w-full max-w-screen-sm py-8">{children}</main>
         </ThemeProvider>
       </body>
     </html>

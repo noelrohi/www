@@ -14,9 +14,7 @@ const posts = defineCollection({
   transform: async (document, { collection, cache }) => {
     const mdx = await compileMDX({ cache }, document);
     const docs = await collection.documents();
-    const idx = docs.findIndex(
-      (d) => document._meta.filePath === d._meta.filePath,
-    );
+    const idx = docs.findIndex((d) => document._meta.filePath === d._meta.filePath);
 
     return {
       ...document,

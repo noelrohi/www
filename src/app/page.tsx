@@ -7,12 +7,8 @@ import { Writing } from "@/components/sections/writing";
 
 export default function Home() {
   return (
-    <section className="items-center gap-8 container py-3 md:py-4 space-y-12">
-      <ProfileHeader
-        name="Noel Rohi Garcia"
-        username="noelrohi"
-        isActive={false}
-      />
+    <section className="container items-center gap-8 space-y-12 py-3 md:py-4">
+      <ProfileHeader name="Noel Rohi Garcia" username="noelrohi" isActive={false} />
       <AboutMe />
       <WorkExperience />
       <Projects />

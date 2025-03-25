@@ -5,12 +5,8 @@ import { motion } from "framer-motion";
 import React, { useCallback, useEffect, useState, useMemo } from "react";
 
 export function TableOfContents() {
-  const [headings, setHeadings] = useState<
-    { id: string; text: string; level: string }[]
-  >([]);
-  const [visibleHeadings, setVisibleHeadings] = useState<Set<string>>(
-    new Set(),
-  );
+  const [headings, setHeadings] = useState<{ id: string; text: string; level: string }[]>([]);
+  const [visibleHeadings, setVisibleHeadings] = useState<Set<string>>(new Set());
 
   const getHeadings = useCallback(() => {
     return Array.from(document.querySelectorAll("h1, h2, h3"))
@@ -52,10 +48,7 @@ export function TableOfContents() {
       rootMargin: "0px 0px -10% 0px",
     };
 
-    const observer = new IntersectionObserver(
-      handleIntersection,
-      observerOptions,
-    );
+    const observer = new IntersectionObserver(handleIntersection, observerOptions);
 
     for (const heading of collectedHeadings) {
       const element = document.getElementById(heading.id);
@@ -94,8 +87,7 @@ export function TableOfContents() {
             type="button"
             onClick={() => scroll(heading.id)}
             className={cn({
-              "mt-0 ml-2 border-l border-l-muted py-1 text-left text-muted-foreground opacity-100 transition ease-in-out hover:opacity-50":
-                true,
+              "mt-0 ml-2 border-l border-l-muted py-1 text-left text-muted-foreground opacity-100 transition ease-in-out hover:opacity-50": true,
               "text-bold": isVisible,
               "pl-4": heading.level === "h1",
               "pl-6": heading.level === "h2",
@@ -113,11 +105,7 @@ export function TableOfContents() {
   );
 
   const headingsList = useMemo(
-    () => (
-      <div className="mt-0 flex flex-col gap-0">
-        {headings.map(renderHeading)}
-      </div>
-    ),
+    () => <div className="mt-0 flex flex-col gap-0">{headings.map(renderHeading)}</div>,
     [headings, renderHeading],
   );
 
@@ -128,7 +116,7 @@ export function TableOfContents() {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.25 }}
-        className="top-[10rem] right-auto left-[2rem] hidden xl:top-[3rem] xl:right-[5rem] xl:left-auto xl:block fixed mt-0 h-full w-48 justify-start space-y-4 transition text-[14px]"
+        className="fixed top-[10rem] right-auto left-[2rem] mt-0 hidden h-full w-48 justify-start space-y-4 text-[14px] transition xl:top-[3rem] xl:right-[5rem] xl:left-auto xl:block"
       >
         {headingsList}
       </motion.nav>
