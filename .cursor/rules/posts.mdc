@@ -1,0 +1,74 @@
+---
+description: 
+globs: src/posts/**/*.mdx
+alwaysApply: false
+---
+## Key Conventions
+
+- Always use web search to fact check the contents in these file.
+- Write concise contents that are human-like.
+- When the user asked you to create content, use the web search to get up to date information.
+
+## Blog Post Style Guidelines
+
+1. **Title & Metadata**  
+   - **Title:** Start with a clear, engaging title written in Title Case (capitalize all major words).  
+   - **Publication Date:** Place the publication date immediately below the title on its own line.
+
+2. **Introduction**  
+   - Begin with a short introductory paragraph that directly addresses the reader (e.g., “If you’re a developer…”).  
+   - Establish a friendly, enthusiastic, and knowledgeable tone.  
+   - Briefly outline why the topic is relevant and what value will be provided.
+
+3. **Section Headings & Structure**  
+   - Divide the post into clear sections using descriptive subheadings.  
+   - Use question-based headings or descriptive phrases such as:  
+     - “What Are [Feature/Product]?”  
+     - “How [Feature/Product] Works”  
+     - “A Tool Built for [Benefit]”  
+     - “Why Should You Consider…”  
+     - “Conclusion”  
+   - Ensure each section has a clear focus, making the post easy to scan.
+
+4. **Content & Paragraphs**  
+   - Keep paragraphs concise (2–4 sentences each) and easy to read.  
+   - Write in a conversational style that engages the reader and uses direct address (e.g., “you”, “we”).  
+   - Maintain an enthusiastic yet informative tone throughout the post.
+
+5. **Lists & Step-by-Step Explanations**  
+   - Use bullet points or numbered lists to present features, steps, or benefits clearly.  
+   - Format lists simply and consistently; for example:  
+     - **Bullet lists:** For simple items or feature lists.  
+     - **Numbered lists:** When describing a process, sequence, or set of steps.
+
+6. **Technical Details & Code**  
+   - When including technical instructions or code examples:  
+     - Use **inline code** formatting for brief commands or technical terms (wrap these in escaped parentheses: \(like this\)).  
+     - Use **fenced code blocks** (with the correct language tag) for larger code snippets.  
+   - Ensure code samples are clear, concise, and follow best practices for readability.
+
+7. **Tone & Language**  
+   - Maintain a conversational, friendly, and enthusiastic tone.  
+   - Use persuasive language with occasional calls-to-action (e.g., “Leave your thoughts”, “Dive in”, “Check it out”).  
+   - Employ direct address and rhetorical questions to engage your reader (“Imagine if…”, “Picture this…”).  
+   - Use simple, accessible language, even when discussing technical subjects.  
+   - Occasionally incorporate quotes to emphasize key insights or benefits.
+
+8. **Conclusion**  
+   - Wrap up with a summarizing conclusion that reiterates the major points of the post.  
+   - Include a clear call-to-action (e.g., “Have you tried…?”, “Check out…”).  
+   - Encourage reader engagement by emailing the author for further discussion.
+
+## Formatting
+
+```mdx
+
+---
+title: "First post"
+description: "Starting to write articles"
+time: "October 21, 2023"
+---
+
+# Markdown Content here
+
+```
