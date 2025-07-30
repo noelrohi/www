@@ -9,15 +9,15 @@ import { ThemeProvider } from "next-themes";
 export const metadata: Metadata = {
   metadataBase: new URL(projectURL),
   title: {
-    default: "Noel Rohi",
-    template: "%s | Noel Rohi",
+    default: "noel rohi",
+    template: "%s | noel rohi",
   },
-  description: "a developer, weeb, and k-drama enthusiast.",
+  description: "a vibe coder, prompt engineer, context engineer, whatever",
   openGraph: {
-    title: "Noel Rohi",
-    description: "a developer, weeb, and k-drama enthusiast.",
+    title: "noel rohi",
+    description: "a vibe coder, prompt engineer, context engineer, whatever",
     url: projectURL,
-    siteName: "Noel Rohi",
+    siteName: "noel rohi",
     locale: "en_US",
     type: "website",
   },
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "Noel Rohi",
+    title: "noel rohi",
     card: "summary_large_image",
   },
 };
