@@ -1,10 +1,10 @@
 import { projectURL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
-import { ThemeProvider } from "next-themes";
 import "@/styles/globals.css";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata, Viewport } from "next";
+import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
   metadataBase: new URL(projectURL),
@@ -55,7 +55,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         {/* <script src="https://unpkg.com/react-scan/dist/auto.global.js" async /> */}
-        <script defer src="https://assets.onedollarstats.com/stonks.js" id="stonks" />
+        <script
+          defer
+          src="https://assets.onedollarstats.com/stonks.js"
+          id="stonks"
+        />
       </head>
       <body
         className={cn(
@@ -70,7 +74,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className="mx-auto mb-16 w-full max-w-screen-sm py-8">{children}</main>
+          <main className="mx-auto w-full py-8">{children}</main>
         </ThemeProvider>
       </body>
     </html>

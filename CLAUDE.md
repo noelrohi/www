@@ -21,7 +21,7 @@ This is a personal portfolio website built with:
 
 ### Key Structure
 
-- **Blog system**: MDX posts in `src/posts/` are processed by content-collections.ts with automatic sorting by date and prev/next linking
+- **Blog system**: MDX posts in `content/posts/` are processed by content-collections.ts with automatic sorting by date and prev/next linking
 - **Components**: 
   - `src/components/sections/` - Page sections (AboutMe, Projects, WorkExperience, etc.)
   - `src/components/mdx/` - Custom MDX components for blog posts
