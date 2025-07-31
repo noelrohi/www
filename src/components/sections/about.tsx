@@ -1,6 +1,7 @@
-import { Github, Globe, Mail, MapPin, Twitter } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Icons } from "../icons";
 
 export function About() {
   return (
@@ -28,20 +29,17 @@ export function About() {
             rel="noopener noreferrer"
             target="_blank"
           >
-            <Github className="h-4 w-4 text-foreground/70 transition-colors hover:text-foreground" />
+            <Icons.gitHub className="h-4 w-4 text-foreground/70 transition-colors hover:text-foreground" />
           </Link>
-          <Link href="mailto:contact@noelrohi.com">
+          <Link href="mailto:noelrohi59@gmail.com">
             <Mail className="h-4 w-4 text-foreground/70 transition-colors hover:text-foreground" />
           </Link>
           <Link
-            href="https://twitter.com/noelrohi"
+            href="https://x.com/noelrohi"
             rel="noopener noreferrer"
             target="_blank"
           >
-            <Twitter className="h-4 w-4 text-foreground/70 transition-colors hover:text-foreground" />
-          </Link>
-          <Link href="https://noelrohi.com">
-            <Globe className="h-4 w-4 text-foreground/70 transition-colors hover:text-foreground" />
+            <Icons.twitter className="h-4 w-4 text-foreground/70 transition-colors hover:text-foreground" />
           </Link>
         </div>
       </section>
