@@ -91,23 +91,23 @@ export function TableOfContents() {
       const isVisible = visibleHeadings.has(heading.id);
 
       return (
-        <div className="mt-0" key={heading.text}>
-          <button
-            className={cn({
-              "mt-0 ml-2 border-l border-l-muted py-1 text-left text-muted-foreground opacity-100 transition ease-in-out hover:opacity-50": true,
-              "text-bold": isVisible,
-              "pl-4": heading.level === "h1",
-              "pl-6": heading.level === "h2",
-              "pl-7": heading.level === "h3",
-              "border-l border-l-primary": isVisible,
-            })}
-            data-active={isVisible ? "true" : "false"}
-            onClick={() => scroll(heading.id)}
-            type="button"
-          >
-            {heading.text}
-          </button>
-        </div>
+        <button
+          className={cn(
+            "block w-full rounded px-2 py-1 text-left text-sm transition-colors duration-200",
+            "text-muted-foreground hover:text-foreground",
+            {
+              "font-medium text-foreground": isVisible,
+              "pl-2": heading.level === "h1",
+              "pl-4": heading.level === "h2",
+              "pl-6": heading.level === "h3",
+            }
+          )}
+          key={heading.id}
+          onClick={() => scroll(heading.id)}
+          type="button"
+        >
+          {heading.text}
+        </button>
       );
     },
     [visibleHeadings, scroll]
@@ -115,22 +115,29 @@ export function TableOfContents() {
 
   const headingsList = useMemo(
     () => (
-      <div className="mt-0 flex flex-col gap-0">
-        {headings.map(renderHeading)}
+      <div className="space-y-1">
+        <div className="mb-3 font-medium text-foreground text-sm">Contents</div>
+        <div className="space-y-1">{headings.map(renderHeading)}</div>
       </div>
     ),
     [headings, renderHeading]
   );
 
+  if (headings.length === 0) {
+    return null;
+  }
+
   return (
     <motion.nav
       animate={{ opacity: 1 }}
-      className="fixed top-[10rem] right-auto left-[2rem] mt-0 hidden h-full w-48 justify-start space-y-4 text-[14px] transition xl:top-[3rem] xl:right-[5rem] xl:left-auto xl:block"
+      className="fixed top-24 right-8 hidden w-64 xl:block"
       exit={{ opacity: 0 }}
       initial={{ opacity: 0 }}
       transition={{ duration: 0.25 }}
     >
-      {headingsList}
+      <div className="rounded-lg border bg-card p-4 shadow-sm">
+        {headingsList}
+      </div>
     </motion.nav>
   );
 }
