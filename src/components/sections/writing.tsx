@@ -4,7 +4,7 @@ import { sortedPosts } from "@/lib/utils";
 export function Writing() {
   const posts = sortedPosts.filter((post) => !post.isDraft);
   return (
-    <section className="animate-slide-from-down-and-fade-4 space-y-4">
+    <section className="space-y-4">
       <h2 className="flex items-center gap-2 font-semibold text-base">
         posts <span className="text-foreground/70">📝</span>
       </h2>

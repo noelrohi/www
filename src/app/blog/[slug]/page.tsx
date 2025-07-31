@@ -71,7 +71,7 @@ export default async function BlogPage({ params }: BlogPage) {
           href={"/"}
         >
           <ChevronLeft className="group-hover:-translate-x-1 ml-1 size-4 transition" />{" "}
-          <span>Back Home</span>
+          <span className="text-sm">Back Home</span>
         </Link>
       </div>
 

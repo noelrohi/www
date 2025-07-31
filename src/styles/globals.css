@@ -177,26 +177,4 @@ body::-webkit-scrollbar {
   }
 }
 
-.animate-slide-from-down-and-fade-1 {
-  animation: slideFromDownAndFade 0.6s ease-in-out 0.1s both;
-}
 
-.animate-slide-from-down-and-fade-2 {
-  animation: slideFromDownAndFade 0.6s ease-in-out 0.2s both;
-}
-
-.animate-slide-from-down-and-fade-3 {
-  animation: slideFromDownAndFade 0.6s ease-in-out 0.3s both;
-}
-
-.animate-slide-from-down-and-fade-4 {
-  animation: slideFromDownAndFade 0.6s ease-in-out 0.4s both;
-}
-
-.animate-slide-from-down-and-fade-5 {
-  animation: slideFromDownAndFade 0.6s ease-in-out 0.5s both;
-}
-
-.animate-slide-from-down-and-fade-6 {
-  animation: slideFromDownAndFade 0.6s ease-in-out 0.6s both;
-}

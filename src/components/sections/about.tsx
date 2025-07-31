@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 export function About() {
   return (
     <header className="space-y-4">
-      <section className="flex animate-slide-from-down-and-fade-1 items-start justify-between">
+      <section className="flex items-start justify-between">
         <div className="flex gap-4">
           <Avatar className="h-12 w-12">
             <AvatarImage
@@ -45,7 +45,7 @@ export function About() {
           </Link>
         </div>
       </section>
-      <section className="animate-slide-from-down-and-fade-2 space-y-4">
+      <section className="space-y-4">
         <p className="text-foreground/70 text-sm leading-relaxed">
           I'm a software engineer and content creator passionate about building
           modern web applications, UI/UX and AI solutions while sharing my
