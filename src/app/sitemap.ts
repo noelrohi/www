@@ -5,7 +5,7 @@ import { sortedPosts } from "@/lib/utils";
 export default function sitemap(): MetadataRoute.Sitemap {
   const postRoutes = sortedPosts.map((post) => ({
     url: `${projectURL}/blog/${post._meta.path}`,
-    lastModified: new Date(post.time).toISOString().split("T")[0],
+    lastModified: new Date().toISOString().split("T")[0],
   }));
   const routes = ["/"].map((url) => ({
     url: `${projectURL}${url}`,

@@ -20,7 +20,7 @@ function generateHeadingId(text: string) {
 const components = {
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
-      className={cn("mt-2 scroll-m-20 font-bold font-sans text-2xl", className)}
+      className={cn("mt-12 scroll-m-20 font-bold font-sans text-2xl first:mt-0", className)}
       id={generateHeadingId(props.children?.toString() ?? "")}
       {...props}
     />
@@ -28,7 +28,7 @@ const components = {
   h2: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h2
       className={cn(
-        "mt-12 scroll-m-20 border-b pb-2 font-sans font-semibold text-lg tracking-tight first:mt-0",
+        "mt-12 scroll-m-20 font-sans font-semibold text-lg tracking-tight first:mt-0",
         className
       )}
       id={generateHeadingId(props.children?.toString() ?? "")}

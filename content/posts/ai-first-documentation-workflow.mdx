@@ -16,7 +16,7 @@ Here's my core insight: no single approach handles every documentation scenario.
 
 Let's walk through each tool and when I use them.
 
-## Copy Buttons (The Gold Standard)
+# Copy Buttons (The Gold Standard)
 
 I've been using these since Anthropic first added their "Copy Markdown" button about 8 months ago. Before that, I was stuck with manual text selection (painful) and browser extensions that never worked quite right. The beauty of these buttons is zero friction—one click and the entire page is in my clipboard, perfectly formatted. Here's how it works: I hit a Clerk auth docs page, click "Copy Markdown", paste into Claude with "How do I implement social login with this?", and get tailored code examples in seconds.
 
@@ -24,7 +24,7 @@ The standout feature? These buttons copy the actual markdown source, not the ren
 
 The downside? Only forward-thinking companies have implemented this. Anthropic, Clerk, and Better Auth get it. Most others don't. I'm hoping this becomes as standard as mobile-responsive design (it should be).
 
-## URL Prefixing with Jina (My Workaround)
+# URL Prefixing with Jina (My Workaround)
 
 I discovered this about 6 months ago when fighting with a particularly copy-hostile docs site. Before Jina, I was stuck with browser reader modes and sketchy Chrome extensions that barely worked. The magic is that it works on any URL—just prefix with `r.jina.ai/` and get clean, AI-friendly markdown. So I find a React docs page, change `https://react.dev/learn` to `r.jina.ai/https://react.dev/learn`, and get clean markdown I can copy directly.
 
@@ -32,7 +32,7 @@ Jina's short and memorable (unlike some alternatives). Firecrawl offers similar 
 
 The downside is it adds an extra step, and occasionally the markdown conversion misses important formatting. I've tried bookmarklets to automate the URL prefixing, but honestly, typing `r.jina.ai/` is fast enough.
 
-## Context Aggregators (For the Big Picture)
+# Context Aggregators (For the Big Picture)
 
 I just started experimenting with Context7 about 2 months ago. Before this, I was manually collecting snippets from multiple sources, which was incredibly time-consuming. What's cool is they maintain curated snippets from 30,000+ libraries, accessible via GitHub links or URLs. The great part? They have refresh functionality that grabs the latest docs from its source, so you're not stuck with outdated information. My workflow now: I'm exploring a new library, check if Context7 has it, and get essential snippets without context window bloat.
 
@@ -41,13 +41,11 @@ The `llms.txt` approach is interesting but flawed. Most libraries just dump ever
 **Limitations:** Coverage is inconsistent, and some curated snippets feel outdated
 **Next steps:** I'm watching to see if this becomes a standard, imagine if every major library maintained proper AI-optimized docs
 
-## Browser-based Agents
+# Browser-based Agents
 
 I'm also exploring tools that can programmatically extract documentation context. Some newer docs sites have "Open in ChatGPT" buttons that pass markdown content via URL parameters, basically saying "we know you're feeding this to an AI anyway, here's a shortcut."
 
 The integration possibilities are fascinating. Imagine documentation that automatically adapts based on your current codebase context (through GitHub integration) or your specific use case.
-
-## Conclusion & Recommendation
 
 Here's my main takeaway: documentation that doesn't work well with AI assistants feels broken now. It's like having a website that doesn't work on mobile, technically functional, but missing how people actually use it.
 
