@@ -6,38 +6,38 @@ export function Writing() {
   const posts = sortedPosts.filter((post) => !post.isDraft);
   return (
     <section className="animate-slide-from-down-and-fade-4 space-y-4">
-      <h2 className="text-base font-semibold flex items-center gap-2">
+      <h2 className="flex items-center gap-2 font-semibold text-base">
         posts <span className="text-foreground/70">📝</span>
       </h2>
       <div className="space-y-3">
         {posts.map((post) => (
           <Link
-            key={post._meta.path}
+            className="group flex items-start gap-3 transition-opacity hover:opacity-80"
             href={`/blog/${post._meta.path}`}
-            className="flex items-start gap-3 group hover:opacity-80 transition-opacity"
+            key={post._meta.path}
           >
-            <FileText className="h-4 w-4 text-foreground/70 mt-0.5" />
+            <FileText className="mt-0.5 h-4 w-4 text-foreground/70" />
             <div className="flex-1">
-              <h3 className="text-sm font-medium group-hover:underline">
+              <h3 className="font-medium text-sm group-hover:underline">
                 {post.title}
               </h3>
-              <p className="text-xs text-foreground/70">{post.description}</p>
+              <p className="text-foreground/70 text-xs">{post.description}</p>
             </div>
           </Link>
         ))}
 
         <Link
+          className="group flex items-start gap-3 transition-opacity hover:opacity-80"
           href="https://youtube.com/@noelrohi"
-          target="_blank"
           rel="noopener noreferrer"
-          className="flex items-start gap-3 group hover:opacity-80 transition-opacity"
+          target="_blank"
         >
-          <Video className="h-4 w-4 text-foreground/70 mt-0.5" />
+          <Video className="mt-0.5 h-4 w-4 text-foreground/70" />
           <div className="flex-1">
-            <h3 className="text-sm font-medium group-hover:underline">
+            <h3 className="font-medium text-sm group-hover:underline">
               want to see video content?
             </h3>
-            <p className="text-xs text-foreground/70">
+            <p className="text-foreground/70 text-xs">
               my channel has content on web dev, ui/ux & ai topics.
             </p>
           </div>

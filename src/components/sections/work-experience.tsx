@@ -7,8 +7,10 @@ export function WorkExperience() {
     <ShellSection index={3} title="Work Experience">
       {workExperience.map((work) => (
         <div
+          className={cn(
+            "flex w-full items-center justify-between border-input"
+          )}
           key={work.company}
-          className={cn("flex w-full items-center justify-between border-input")}
         >
           <div className="space-y-2">
             <div className="flex items-center gap-2">

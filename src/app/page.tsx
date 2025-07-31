@@ -4,7 +4,7 @@ import { Writing } from "@/components/sections/writing";
 
 export default function Home() {
   return (
-    <section className="container max-w-2xl mx-auto px-4 md:px-6 py-12 space-y-8">
+    <section className="container mx-auto max-w-2xl space-y-8 px-4 py-12 md:px-6">
       <About />
       <Projects />
       <Writing />

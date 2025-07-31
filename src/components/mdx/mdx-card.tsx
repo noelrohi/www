@@ -11,13 +11,19 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   disabled?: boolean;
 }
 
-export function MdxCard({ href, className, children, disabled, ...props }: CardProps) {
+export function MdxCard({
+  href,
+  className,
+  children,
+  disabled,
+  ...props
+}: CardProps) {
   return (
     <div
       className={cn(
         "group relative rounded-lg border p-6 shadow-md transition-shadow hover:shadow-lg",
         disabled && "cursor-not-allowed opacity-60",
-        className,
+        className
       )}
       {...props}
     >
@@ -27,7 +33,7 @@ export function MdxCard({ href, className, children, disabled, ...props }: CardP
         </div>
       </div>
       {href && (
-        <Link href={disabled ? "#" : href} className="absolute inset-0">
+        <Link className="absolute inset-0" href={disabled ? "#" : href}>
           <span className="sr-only">View</span>
         </Link>
       )}

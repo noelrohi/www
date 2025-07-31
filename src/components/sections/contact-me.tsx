@@ -1,5 +1,5 @@
-import { ShellSection } from "@/components/ui/shell";
 import Link from "next/link";
+import { ShellSection } from "@/components/ui/shell";
 
 export function ContactMe() {
   return (
@@ -13,11 +13,18 @@ export function ContactMe() {
             Email
           </CustomLink>
           . Or just ping me on{" "}
-          <CustomLink href="https://discordapp.com/users/666483486735073312">Discord</CustomLink>.
-          You can also follow me on{" "}
-          <CustomLink href="https://git.new/noelrohi?ref=noelrohi.com">Github</CustomLink> and{" "}
-          <CustomLink href="https://dub.sh/noelrohi?ref=noelrohi.com">X</CustomLink> if you find my
-          work interesting.
+          <CustomLink href="https://discordapp.com/users/666483486735073312">
+            Discord
+          </CustomLink>
+          . You can also follow me on{" "}
+          <CustomLink href="https://git.new/noelrohi?ref=noelrohi.com">
+            Github
+          </CustomLink>{" "}
+          and{" "}
+          <CustomLink href="https://dub.sh/noelrohi?ref=noelrohi.com">
+            X
+          </CustomLink>{" "}
+          if you find my work interesting.
         </p>
       </div>
     </ShellSection>
@@ -32,10 +39,10 @@ interface CustomLinkProps {
 function CustomLink({ href, children }: CustomLinkProps) {
   return (
     <Link
-      href={href}
-      target="_blank"
-      rel="noreferrer"
       className="prose prose-zinc dark:prose-invert border-neutral-700 border-b border-dashed pb-[1.4px] text-[15px] no-underline underline-offset-4 hover:border-solid "
+      href={href}
+      rel="noreferrer"
+      target="_blank"
     >
       {children}
     </Link>

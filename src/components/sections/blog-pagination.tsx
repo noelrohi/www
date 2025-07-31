@@ -5,13 +5,16 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 interface BlogPagination {
-  posts: Array<Post>;
+  posts: Post[];
 }
 
 export function BlogPagination({ posts }: BlogPagination) {
   const currentSlug = usePathname().split("/").pop();
-  const currentIndex = posts.findIndex((post) => post._meta.path === currentSlug);
-  const previous = currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null;
+  const currentIndex = posts.findIndex(
+    (post) => post._meta.path === currentSlug
+  );
+  const previous =
+    currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null;
   const next = currentIndex > 0 ? posts[currentIndex - 1] : null;
 
   return (
@@ -22,14 +25,17 @@ export function BlogPagination({ posts }: BlogPagination) {
           href={`/blog/${previous._meta.path}`}
         >
           <span className="mb-1 text-muted-foreground">Previous</span>
-          <span className="font-medium ">{previous.title}</span>
+          <span className="font-medium">{previous.title}</span>
         </Link>
       )}
 
       {next && (
-        <Link className="flex w-full flex-col gap-1 text-right" href={`/blog/${next._meta.path}`}>
+        <Link
+          className="flex w-full flex-col gap-1 text-right"
+          href={`/blog/${next._meta.path}`}
+        >
           <span className="mb-1 text-muted-foreground">Next</span>
-          <span className="font-medium ">{next.title}</span>
+          <span className="font-medium">{next.title}</span>
         </Link>
       )}
     </div>

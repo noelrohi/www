@@ -6,41 +6,39 @@ export function Projects() {
     {
       name: "anirohi",
       description: "Watch anime online with no ads",
-      url: "https://github.com/noelrohi/anirohi"
+      url: "https://github.com/noelrohi/anirohi",
     },
     {
       name: "kd",
       description: "Stream Korean dramas without interruptions",
-      url: "https://github.com/noelrohi/kd"
+      url: "https://github.com/noelrohi/kd",
     },
     {
       name: "agentc",
       description: "Directory of AI-powered tools and products",
-      url: "https://github.com/noelrohi/agentc"
-    }
+      url: "https://github.com/noelrohi/agentc",
+    },
   ];
 
   return (
     <section className="animate-slide-from-down-and-fade-3 space-y-4">
-      <h2 className="text-base font-semibold flex items-center gap-2">
+      <h2 className="flex items-center gap-2 font-semibold text-base">
         projects <span className="text-foreground/70">🛠️</span>
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
         {projects.map((project) => (
           <Link
-            key={project.name}
+            className="group space-y-2 border border-border/50 p-3 transition-colors hover:bg-accent/50"
             href={project.url}
-            target="_blank"
+            key={project.name}
             rel="noopener noreferrer"
-            className="group space-y-2 p-3 border border-border/50 hover:bg-accent/50 transition-colors"
+            target="_blank"
           >
-            <h3 className="text-sm font-medium group-hover:underline flex items-center gap-1">
+            <h3 className="flex items-center gap-1 font-medium text-sm group-hover:underline">
               {project.name}
-              <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <ExternalLink className="h-3 w-3 opacity-0 transition-opacity group-hover:opacity-100" />
             </h3>
-            <p className="text-xs text-foreground/70">
-              {project.description}
-            </p>
+            <p className="text-foreground/70 text-xs">{project.description}</p>
           </Link>
         ))}
       </div>

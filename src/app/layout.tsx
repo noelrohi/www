@@ -57,22 +57,22 @@ export default function RootLayout({
         {/* <script src="https://unpkg.com/react-scan/dist/auto.global.js" async /> */}
         <script
           defer
-          src="https://assets.onedollarstats.com/stonks.js"
           id="stonks"
+          src="https://assets.onedollarstats.com/stonks.js"
         />
       </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
           GeistSans.variable,
-          GeistMono.variable,
+          GeistMono.variable
         )}
       >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
-          enableSystem
           disableTransitionOnChange
+          enableSystem
         >
           <main className="mx-auto w-full py-8">{children}</main>
         </ThemeProvider>

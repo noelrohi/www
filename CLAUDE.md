@@ -13,6 +13,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Project Architecture
 
 This is a personal portfolio website built with:
+
 - **Next.js 15** with App Router and React 19
 - **Content Collections** for MDX blog post processing with automatic prev/next linking
 - **Biome** for formatting and linting (configured in biome.json)
@@ -22,7 +23,7 @@ This is a personal portfolio website built with:
 ### Key Structure
 
 - **Blog system**: MDX posts in `content/posts/` are processed by content-collections.ts with automatic sorting by date and prev/next linking
-- **Components**: 
+- **Components**:
   - `src/components/sections/` - Page sections (AboutMe, Projects, WorkExperience, etc.)
   - `src/components/mdx/` - Custom MDX components for blog posts
   - `src/components/ui/` - shadcn/ui components
@@ -32,6 +33,7 @@ This is a personal portfolio website built with:
 ### Content Collections System
 
 Blog posts use a schema with `title`, `description`, `time`, and optional `isDraft` fields. The transform function automatically:
+
 - Compiles MDX content
 - Sorts posts by date (newest first)
 - Links prev/next posts chronologically
@@ -40,6 +42,7 @@ Blog posts use a schema with `title`, `description`, `time`, and optional `isDra
 ### Biome Configuration
 
 Linting rules include:
+
 - Sorted Tailwind classes enforced
 - Console logs as warnings
 - Unused variables as errors

@@ -17,7 +17,13 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
+      "recommended": true,
+      "nursery": {
+        "noUnknownAtRule": "off"
+      },
+      "performance": {
+        "noNamespaceImport": "off"
+      }
     }
   },
   "javascript": {
@@ -32,5 +38,6 @@
         "organizeImports": "on"
       }
     }
-  }
+  },
+  "extends": ["ultracite"]
 }

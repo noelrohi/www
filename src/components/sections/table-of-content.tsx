@@ -1,12 +1,16 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import React, { useCallback, useEffect, useState, useMemo } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { cn } from "@/lib/utils";
 
 export function TableOfContents() {
-  const [headings, setHeadings] = useState<{ id: string; text: string; level: string }[]>([]);
-  const [visibleHeadings, setVisibleHeadings] = useState<Set<string>>(new Set());
+  const [headings, setHeadings] = useState<
+    { id: string; text: string; level: string }[]
+  >([]);
+  const [visibleHeadings, setVisibleHeadings] = useState<Set<string>>(
+    new Set()
+  );
 
   const getHeadings = useCallback(() => {
     return Array.from(document.querySelectorAll("h1, h2, h3"))
@@ -48,11 +52,16 @@ export function TableOfContents() {
       rootMargin: "0px 0px -10% 0px",
     };
 
-    const observer = new IntersectionObserver(handleIntersection, observerOptions);
+    const observer = new IntersectionObserver(
+      handleIntersection,
+      observerOptions
+    );
 
     for (const heading of collectedHeadings) {
       const element = document.getElementById(heading.id);
-      if (element) observer.observe(element);
+      if (element) {
+        observer.observe(element);
+      }
     }
 
     return () => {
@@ -66,7 +75,7 @@ export function TableOfContents() {
     if (element) {
       const top = element.offsetTop - 100;
       window.scrollTo({
-        top: top,
+        top,
         behavior: "smooth",
       });
 
@@ -82,10 +91,8 @@ export function TableOfContents() {
       const isVisible = visibleHeadings.has(heading.id);
 
       return (
-        <div key={heading.text} className="mt-0">
+        <div className="mt-0" key={heading.text}>
           <button
-            type="button"
-            onClick={() => scroll(heading.id)}
             className={cn({
               "mt-0 ml-2 border-l border-l-muted py-1 text-left text-muted-foreground opacity-100 transition ease-in-out hover:opacity-50": true,
               "text-bold": isVisible,
@@ -95,31 +102,35 @@ export function TableOfContents() {
               "border-l border-l-primary": isVisible,
             })}
             data-active={isVisible ? "true" : "false"}
+            onClick={() => scroll(heading.id)}
+            type="button"
           >
             {heading.text}
           </button>
         </div>
       );
     },
-    [visibleHeadings, scroll],
+    [visibleHeadings, scroll]
   );
 
   const headingsList = useMemo(
-    () => <div className="mt-0 flex flex-col gap-0">{headings.map(renderHeading)}</div>,
-    [headings, renderHeading],
+    () => (
+      <div className="mt-0 flex flex-col gap-0">
+        {headings.map(renderHeading)}
+      </div>
+    ),
+    [headings, renderHeading]
   );
 
   return (
-    <React.Fragment>
-      <motion.nav
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.25 }}
-        className="fixed top-[10rem] right-auto left-[2rem] mt-0 hidden h-full w-48 justify-start space-y-4 text-[14px] transition xl:top-[3rem] xl:right-[5rem] xl:left-auto xl:block"
-      >
-        {headingsList}
-      </motion.nav>
-    </React.Fragment>
+    <motion.nav
+      animate={{ opacity: 1 }}
+      className="fixed top-[10rem] right-auto left-[2rem] mt-0 hidden h-full w-48 justify-start space-y-4 text-[14px] transition xl:top-[3rem] xl:right-[5rem] xl:left-auto xl:block"
+      exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
+      transition={{ duration: 0.25 }}
+    >
+      {headingsList}
+    </motion.nav>
   );
 }

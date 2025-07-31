@@ -7,5 +7,5 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const sortedPosts = allPosts.sort(
-  (a, b) => new Date(b.time).getTime() - new Date(a.time).getTime(),
+  (a, b) => new Date(b.time).getTime() - new Date(a.time).getTime()
 );
