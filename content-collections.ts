@@ -10,6 +10,7 @@ const posts = defineCollection({
     description: z.string(),
     time: z.string(),
     isDraft: z.boolean().optional().default(false),
+    ogUrl: z.string().optional(),
   }),
   transform: async (document, { collection, cache }) => {
     const mdx = await compileMDX({ cache }, document);

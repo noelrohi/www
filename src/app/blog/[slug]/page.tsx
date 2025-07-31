@@ -27,8 +27,9 @@ export async function generateMetadata({
     return;
   }
 
-  const { title, time, description } = post;
-  const ogImage = `https://og.noelrohi.com/blog?title=${title}&date=${time}`;
+  const { title, time, description, ogUrl } = post;
+
+  const openGraphImages = ogUrl ? [{ url: ogUrl }] : undefined;
 
   return {
     title,
@@ -39,17 +40,13 @@ export async function generateMetadata({
       type: "article",
       publishedTime: time,
       url: `${projectURL}/blog/${post._meta.path}`,
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
+      ...(openGraphImages && { images: openGraphImages }),
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [ogImage],
+      ...(ogUrl && { images: [ogUrl] }),
     },
   };
 }
@@ -65,47 +62,81 @@ export default async function BlogPage({ params }: BlogPage) {
 
   return (
     <div className="animation-delay-300 container mx-auto w-full max-w-2xl px-4 py-4 sm:px-7">
-      <div className="fixed top-[10rem] right-auto left-[2rem] mt-0 hidden h-full w-fit justify-start space-y-4 text-[14px] transition xl:top-[3rem] xl:right-auto xl:left-[12rem] xl:block">
+      {/* Skip to main content link for screen readers */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-primary focus:text-primary-foreground focus:px-4 focus:py-2 focus:rounded"
+      >
+        Skip to main content
+      </a>
+
+      {/* Navigation - Desktop */}
+      <nav
+        className="fixed top-[10rem] right-auto left-[2rem] mt-0 hidden h-full w-fit justify-start space-y-4 text-[14px] transition xl:top-[3rem] xl:right-auto xl:left-[12rem] xl:block"
+        aria-label="Blog navigation"
+      >
         <Link
           className="group flex cursor-pointer items-center gap-2 text-bold text-muted-foreground hover:text-primary"
           href={"/"}
+          aria-label="Go back to home page"
         >
-          <ChevronLeft className="group-hover:-translate-x-1 ml-1 size-4 transition" />{" "}
+          <ChevronLeft className="group-hover:-translate-x-1 ml-1 size-4 transition" aria-hidden="true" />{" "}
           <span className="text-sm">Back Home</span>
         </Link>
-      </div>
+      </nav>
 
-      <div className="mb-8">
-        <Link
-          className="group mb-4 flex cursor-pointer items-center gap-2 text-bold text-muted-foreground hover:text-primary xl:hidden"
-          href={"/"}
-        >
-          <MoveLeft className="group-hover:-translate-x-1 ml-1 size-4 transition" />{" "}
-          <span className="text-xs">Back Home</span>
-        </Link>
+      {/* Article header */}
+      <header className="mb-8">
+        {/* Navigation - Mobile */}
+        <nav className="mb-4 xl:hidden" aria-label="Blog navigation">
+          <Link
+            className="group flex cursor-pointer items-center gap-2 text-bold text-muted-foreground hover:text-primary"
+            href={"/"}
+            aria-label="Go back to home page"
+          >
+            <MoveLeft className="group-hover:-translate-x-1 ml-1 size-4 transition" aria-hidden="true" />{" "}
+            <span className="text-xs">Back Home</span>
+          </Link>
+        </nav>
+
         <h1 className="mb-2 font-medium text-lg lg:leading-[1.1]">
           {post.title}
         </h1>
+        
         <div className="flex flex-wrap items-center space-x-1.5 text-muted-foreground text-sm">
-          <time className="block" dateTime="2024-10-06T00:00:00.000Z">
+          <time className="block" dateTime={post.time}>
             {post.time}
           </time>
-          <div className="text-[0.6rem]">•</div>
+          <div className="text-[0.6rem]" aria-hidden="true">•</div>
           <div>
+            <span className="sr-only">Estimated reading time: </span>
             {minutes} minute{minutes > 1 ? "s" : ""} read
           </div>
           {post.isDraft && (
             <>
-              <div className="text-[0.6rem]">•</div>
-              <div>Draft</div>
+              <div className="text-[0.6rem]" aria-hidden="true">•</div>
+              <div>
+                <span className="sr-only">Status: </span>
+                Draft
+              </div>
             </>
           )}
         </div>
-      </div>
+      </header>
 
-      <MDX code={post.mdx} />
-      <div className="my-10 h-[0.5px] w-full shrink-0 border border-dashed" />
-      <BlogPagination posts={sortedPosts} />
+      {/* Main article content */}
+      <main id="main-content">
+        <article>
+          <MDX code={post.mdx} />
+        </article>
+      </main>
+
+      <div className="my-10 h-[0.5px] w-full shrink-0 border border-dashed" role="separator" aria-hidden="true" />
+      
+      {/* Blog pagination navigation */}
+      <nav aria-label="Blog post navigation">
+        <BlogPagination posts={sortedPosts} />
+      </nav>
     </div>
   );
 }

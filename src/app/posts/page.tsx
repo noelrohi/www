@@ -1,23 +1,23 @@
 import Link from "next/link";
+import { ProfileHeader } from "@/components/sections/profile-header";
 import { sortedPosts } from "@/lib/utils";
 
-export function Writing() {
-  const posts = sortedPosts.filter((post) => !post.isDraft);
+function AllPosts() {
   return (
     <section className="space-y-4">
       <div className="flex items-center justify-between">
         <h2 className="flex items-center gap-2 font-semibold text-base">
-          posts <span className="text-foreground/70">📝</span>
+          All Posts <span className="text-foreground/70">📝</span>
         </h2>
         <Link
-          href="/posts"
+          href="/"
           className="text-foreground/70 text-xs hover:text-foreground hover:underline"
         >
-          View all
+          ← Back to home
         </Link>
       </div>
       <div className="space-y-3">
-        {posts.map((post) => (
+        {sortedPosts.map((post) => (
           <Link
             className="group flex items-start gap-3 transition-opacity hover:opacity-80"
             href={`/blog/${post._meta.path}`}
@@ -28,10 +28,32 @@ export function Writing() {
                 {post.title}
               </h3>
               <p className="text-foreground/70 text-xs">{post.description}</p>
+              <div className="mt-1 flex items-center gap-2 text-foreground/60 text-xs">
+                <time>{post.time}</time>
+                {post.isDraft && (
+                  <>
+                    <span>•</span>
+                    <span className="text-orange-500">Draft</span>
+                  </>
+                )}
+              </div>
             </div>
           </Link>
         ))}
       </div>
     </section>
+  );
+}
+
+export default function PostsPage() {
+  return (
+    <div className="flex h-svh flex-col overflow-hidden">
+      <div className="flex-1 overflow-y-auto">
+        <section className="container mx-auto max-w-2xl space-y-8 px-4 py-12 md:px-6">
+          <ProfileHeader />
+          <AllPosts />
+        </section>
+      </div>
+    </div>
   );
 }
