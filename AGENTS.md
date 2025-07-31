@@ -47,3 +47,8 @@ Linting rules include:
 - Console logs as warnings
 - Unused variables as errors
 - Some a11y and security rules disabled for flexibility
+
+## Content Guidelines
+
+- Use `**.draft.md` to make a post in draft status.
+- Always follow the frontmatter defined in @content-collections.ts
