@@ -1,0 +1,58 @@
+---
+title: "Sub Agents"
+description: "Create specialized AI agents using proven patterns"
+time: "July 31st, 2025"
+---
+
+Your general-purpose AI assistant is trying to do too much.
+
+When you ask for help creating UI components, you get generic advice. When you need database optimization, you get something that works but misses the performance tricks an expert would catch.
+
+Instead of one overworked AI, you can build specialized sub agents that actually know their stuff.
+
+Here are the three methods I personally use to build agents that actually work.
+
+## Method 1: Start with Claude Code docs
+
+When I'm new to sub agents, I start with the examples in Claude Code's documentation. They're basic but give you a solid foundation to understand the structure. The docs show agents like code-reviewer, debugger, and data-scientist with clear system prompts and tool configurations.
+
+These examples are general-purpose, but they teach you the fundamentals: how to write effective descriptions, which tools to grant, and how to structure system prompts. I use them as templates, then customize for my specific needs.
+
+## Method 2: Search with grep.app
+
+This is where I find the real gold. I use grep.app to search GitHub for `.claude/agents/` and see how actual developers structure their agents in production. You'd be surprised how many people are sharing their agent configurations publicly.
+
+I search for specific patterns like:
+
+- `.claude/agents/` to find agent directories
+- `frontend-expert` or `code-reviewer` to see naming conventions
+- System prompts that match my domain needs
+
+This method lets me steal proven configurations from developers who've already solved similar problems. Someone's always built the exact specialist I need, and grep.app helps me find their solution fast.
+
+## Method 3: Use cursor.directory or similar
+
+When I need battle-tested patterns, I visit cursor.directory or similar rule collections. These aren't random prompts - they're proven by thousands of developers across different tech stacks.
+
+I grab rules for Next.js + TypeScript, Python FastAPI, or whatever I'm working with, then transform them into focused sub agents using this prompt:
+
+```
+From these cursor rules, create a frontend-expert sub agent with:
+- Clear domain expertise
+- Detailed system prompt with best practices
+- Designed for proactive use
+
+[Paste your cursor rules here]
+```
+
+I keep it simple - one agent at a time. Much cleaner results.
+
+Once I have examples from any of these methods, I run `/agents` in Claude Code to create the actual agent. The interface makes it easy to:
+
+- Generate with Claude first (let it create the initial structure)
+- Customize the system prompt and tool permissions
+- Save as project-level for team sharing
+
+Within an hour using any of these methods, you've gone from a single overworked AI to a specialized development team. Each agent has deep expertise in their domain, proven patterns to work with, and the right tools for their job.
+
+The tools are here today, the patterns are proven, and your specialized development team is just a few prompts away.

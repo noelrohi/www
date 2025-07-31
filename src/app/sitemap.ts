@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${projectURL}/blog/${post._meta.path}`,
     lastModified: new Date().toISOString().split("T")[0],
   }));
-  const routes = ["/"].map((url) => ({
+  const routes = ["/", "/posts"].map((url) => ({
     url: `${projectURL}${url}`,
     lastModified: new Date().toISOString().split("T")[0],
   }));

@@ -20,7 +20,10 @@ function generateHeadingId(text: string) {
 const components = {
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
-      className={cn("mt-12 scroll-m-20 font-bold font-sans text-2xl first:mt-0", className)}
+      className={cn(
+        "mt-12 scroll-m-20 font-bold font-sans text-2xl first:mt-0",
+        className
+      )}
       id={generateHeadingId(props.children?.toString() ?? "")}
       {...props}
     />
@@ -88,10 +91,13 @@ const components = {
     />
   ),
   ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
-    <ul className={cn("my-6 ml-6 list-disc", className)} {...props} />
+    <ul className={cn("my-6 ml-6 list-disc text-sm", className)} {...props} />
   ),
   ol: ({ className, ...props }: React.HTMLAttributes<HTMLOListElement>) => (
-    <ol className={cn("my-6 ml-6 list-decimal", className)} {...props} />
+    <ol
+      className={cn("my-6 ml-6 list-decimal text-sm", className)}
+      {...props}
+    />
   ),
   li: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <li className={cn("mt-2", className)} {...props} />

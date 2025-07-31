@@ -5,6 +5,7 @@ const posts = defineCollection({
   name: "posts",
   directory: "content/posts",
   include: "**/*.mdx",
+  exclude: "**/*.draft.mdx",
   schema: (z) => ({
     title: z.string(),
     description: z.string(),
