@@ -12,13 +12,13 @@ Instead of one overworked AI, you can build specialized sub agents that actually
 
 Here are the three methods I personally use to build agents that actually work.
 
-## Method 1: Start with Claude Code docs
+## Start with Claude Code docs
 
-When I'm new to sub agents, I start with the examples in Claude Code's documentation. They're basic but give you a solid foundation to understand the structure. The docs show agents like code-reviewer, debugger, and data-scientist with clear system prompts and tool configurations.
+When I'm new to sub agents, I start with the [Claude Code documentation](https://docs.anthropic.com/en/docs/claude-code/sub-agents). There's one example agent, but more importantly, there's the file format reference that shows you exactly how to structure your agents.
 
-These examples are general-purpose, but they teach you the fundamentals: how to write effective descriptions, which tools to grant, and how to structure system prompts. I use them as templates, then customize for my specific needs.
+The example is general-purpose, but it teaches you the fundamentals: how to write effective descriptions, which tools to grant, and how to structure system prompts. I use the file format as a template, then customize for my specific needs.
 
-## Method 2: Search with grep.app
+## Search with grep.app
 
 This is where I find the real gold. I use grep.app to search GitHub for `.claude/agents/` and see how actual developers structure their agents in production. You'd be surprised how many people are sharing their agent configurations publicly.
 
@@ -30,7 +30,7 @@ I search for specific patterns like:
 
 This method lets me steal proven configurations from developers who've already solved similar problems. Someone's always built the exact specialist I need, and grep.app helps me find their solution fast.
 
-## Method 3: Use cursor.directory or similar
+## Use cursor.directory or similar
 
 When I need battle-tested patterns, I visit cursor.directory or similar rule collections. These aren't random prompts - they're proven by thousands of developers across different tech stacks.
 

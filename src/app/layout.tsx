@@ -74,7 +74,7 @@ export default function RootLayout({
           disableTransitionOnChange
           enableSystem
         >
-          <main className="mx-auto w-full py-8">{children}</main>
+          <main className="mx-auto w-full py-4 md:py-6">{children}</main>
         </ThemeProvider>
       </body>
     </html>

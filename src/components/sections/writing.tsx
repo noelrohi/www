@@ -19,15 +19,18 @@ export function Writing() {
       <div className="space-y-3">
         {posts.map((post) => (
           <Link
-            className="group flex items-start gap-3 transition-opacity hover:opacity-80"
+            className="group block border border-border/50 p-3 transition-colors hover:bg-accent/50"
             href={`/blog/${post._meta.path}`}
             key={post._meta.path}
           >
-            <div className="flex-1">
-              <h3 className="font-medium text-sm group-hover:underline">
-                {post.title}
-              </h3>
-              <p className="text-foreground/70 text-xs">{post.description}</p>
+            <div className="flex items-start justify-between gap-4">
+              <div className="flex-1 min-w-0">
+                <h3 className="font-medium text-sm group-hover:underline">
+                  {post.title}
+                </h3>
+                <p className="text-foreground/70 text-xs mt-0.5">{post.description}</p>
+              </div>
+              <time className="text-foreground/60 text-xs shrink-0">{post.time}</time>
             </div>
           </Link>
         ))}
