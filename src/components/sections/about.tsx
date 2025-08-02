@@ -63,8 +63,8 @@ export function About() {
                 ScaleForge
               </Link>
             </li>
-            <li>• Tech content creation and tutorials</li>
-            <li>• Sharing cool AI stuff</li>
+            <li>• Writing essays about workflow, LLMs, and engineering</li>
+            <li>• Sharing thoughts on AI and development practices</li>
           </ul>
         </div>
       </section>
