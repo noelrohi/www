@@ -45,9 +45,9 @@ export function About() {
       </section>
       <section className="space-y-4">
         <p className="text-foreground/70 text-sm leading-relaxed">
-          I'm a software engineer and content creator passionate about building
-          modern web applications, UI/UX and AI solutions while sharing my
-          knowledge through tutorials and project walkthroughs.
+          I'm a software engineer passionate about building modern web 
+          applications, UI/UX and AI solutions while sharing my thoughts 
+          through essays and technical writing.
         </p>
         <div>
           <h2 className="mb-2 font-semibold text-base">What I do:</h2>
