@@ -8,9 +8,9 @@ I copy-paste every piece of documentation I read into Claude or Cursor now.
 
 The old way of reading docs linearly feels painfully slow, like trying to browse the web on dial-up.
 
-About 18 months ago, I was still that developer who'd open documentation in one tab and my code editor in another, constantly switching back and forth. Now? I instinctively scan for copy buttons the moment I land on any docs page. The shift happened so gradually I didn't notice until traditional docs started feeling... broken.
+I used to be that developer who'd open documentation in one tab and my code editor in another, constantly switching back and forth. Now I instinctively scan for copy buttons the moment I land on any docs page. The shift happened so gradually I didn't notice until traditional docs started feeling... broken.
 
-I'm currently using three main approaches: native copy buttons (when available), URL prefixing tools like Jina, and context aggregators like Context7. Wait, why so many tools for something as simple as reading docs?
+I use three main approaches: native copy buttons (when available), URL prefixing tools like Jina, and context aggregators like Context7. Why so many tools for something as simple as reading docs?
 
 Here's my core insight: no single approach handles every documentation scenario. Some companies embrace AI-first workflows, others ignore them completely, and you need different tools for different situations.
 
@@ -18,7 +18,7 @@ Let's walk through each tool and when I use them.
 
 # Copy Buttons (The Gold Standard)
 
-I've been using these since Anthropic first added their "Copy Markdown" button about 8 months ago. Before that, I was stuck with manual text selection (painful) and browser extensions that never worked quite right. The beauty of these buttons is zero friction—one click and the entire page is in my clipboard, perfectly formatted. Here's how it works: I hit a Clerk auth docs page, click "Copy Markdown", paste into Claude with "How do I implement social login with this?", and get tailored code examples in seconds.
+These are my preferred method when available. The beauty of these buttons is zero friction—one click and the entire page is in my clipboard, perfectly formatted. Here's how it works: I hit a Clerk auth docs page, click "Copy Markdown", paste into Claude with "How do I implement social login with this?", and get tailored code examples in seconds.
 
 The standout feature? These buttons copy the actual markdown source, not the rendered HTML. That means clean formatting when I paste it into my AI assistant.
 
@@ -26,29 +26,29 @@ The downside? Only forward-thinking companies have implemented this. Anthropic, 
 
 # URL Prefixing with Jina (My Workaround)
 
-I discovered this about 6 months ago when fighting with a particularly copy-hostile docs site. Before Jina, I was stuck with browser reader modes and sketchy Chrome extensions that barely worked. The magic is that it works on any URL—just prefix with `r.jina.ai/` and get clean, AI-friendly markdown. So I find a React docs page, change `https://react.dev/learn` to `r.jina.ai/https://react.dev/learn`, and get clean markdown I can copy directly.
+This is my go-to solution for sites without copy buttons. The magic is that it works on any URL—just prefix with `r.jina.ai/` and get clean, AI-friendly markdown. So I find a React docs page, change `https://react.dev/learn` to `r.jina.ai/https://react.dev/learn`, and get clean markdown I can copy directly.
 
 Jina's short and memorable (unlike some alternatives). Firecrawl offers similar functionality but the URL structure is more complex.
 
-The downside is it adds an extra step, and occasionally the markdown conversion misses important formatting. I've tried bookmarklets to automate the URL prefixing, but honestly, typing `r.jina.ai/` is fast enough.
+The downside is it adds an extra step, and occasionally the markdown conversion misses important formatting. I've experimented with bookmarklets to automate the URL prefixing, but honestly, typing `r.jina.ai/` is fast enough.
 
 # Context Aggregators (For the Big Picture)
 
-I just started experimenting with Context7 about 2 months ago. Before this, I was manually collecting snippets from multiple sources, which was incredibly time-consuming. What's cool is they maintain curated snippets from 30,000+ libraries, accessible via GitHub links or URLs. The great part? They have refresh functionality that grabs the latest docs from its source, so you're not stuck with outdated information. My workflow now: I'm exploring a new library, check if Context7 has it, and get essential snippets without context window bloat.
+Context7 is perfect for getting the big picture when exploring new libraries. They maintain curated snippets from 30,000+ libraries, accessible via GitHub links or URLs. The great part? They have refresh functionality that grabs the latest docs from its source, so you're not stuck with outdated information. My workflow: I'm exploring a new library, check if Context7 has it, and get essential snippets without context window bloat.
 
 The `llms.txt` approach is interesting but flawed. Most libraries just dump everything into one file, cluttering your AI's context. The smart ones (like some Next.js community projects) offer both `llms.txt` for essentials and `llms-full.txt` for comprehensive coverage.
 
 **Limitations:** Coverage is inconsistent, and some curated snippets feel outdated
 **Next steps:** I'm watching to see if this becomes a standard, imagine if every major library maintained proper AI-optimized docs
 
-# Browser-based Agents
+# External AI Chat Integration
 
-I'm also exploring tools that can programmatically extract documentation context. Some newer docs sites have "Open in ChatGPT" buttons that pass markdown content via URL parameters, basically saying "we know you're feeding this to an AI anyway, here's a shortcut."
+Beyond these three approaches, some docs sites now have "Open in ChatGPT", "Open in Claude", or "Open in t3.chat" buttons that pass markdown content via URL parameters. While this sounds convenient, I find it's only useful for quick brainstorming sessions before heading back to my editor. These external chat interfaces are fine for exploring concepts, but when I need to actually implement something, I still prefer copying the docs into my main AI assistant where I have full context of my codebase.
 
-The integration possibilities are fascinating. Imagine documentation that automatically adapts based on your current codebase context (through GitHub integration) or your specific use case.
+# Conclusion
 
-Here's my main takeaway: documentation that doesn't work well with AI assistants feels broken now. It's like having a website that doesn't work on mobile, technically functional, but missing how people actually use it.
+Documentation that doesn't work well with AI assistants feels broken now. It's like having a website that doesn't work on mobile, technically functional, but missing how people actually use it.
 
-Go try these tools, especially if you're still manually copying text selections. Start with checking if your favorite docs sites have copy buttons, then bookmark the Jina prefix trick for everything else.
+Try these tools, especially if you're still manually copying text selections. Start with checking if your favorite docs sites have copy buttons, then bookmark the Jina prefix trick for everything else.
 
-In 6 months, I expect we'll see copy buttons become as standard as search bars on documentation sites. The companies that get there first will have a real developer experience advantage.
+I expect we'll see copy buttons become as standard as search bars on documentation sites. The companies that get there first will have a real developer experience advantage.
