@@ -16,9 +16,16 @@ const posts = defineCollection({
   transform: async (document, { collection, cache }) => {
     const mdx = await compileMDX({ cache }, document);
     const docs = await collection.documents();
+    
+    // Helper function to parse dates with ordinal suffixes
+    const parseDate = (dateString: string): Date => {
+      const cleanDate = dateString.replace(/(\d+)(st|nd|rd|th)/g, '$1');
+      return new Date(cleanDate);
+    };
+    
     // Sort docs by date descending (newest first)
     const sortedDocs = [...docs].sort(
-      (a, b) => new Date(b.time).getTime() - new Date(a.time).getTime(),
+      (a, b) => parseDate(b.time).getTime() - parseDate(a.time).getTime(),
     );
     const idx = sortedDocs.findIndex((d) => document._meta.filePath === d._meta.filePath);
 

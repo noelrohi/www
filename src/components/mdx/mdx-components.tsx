@@ -41,7 +41,7 @@ const components = {
   h3: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h3
       className={cn(
-        "mt-8 scroll-m-20 font-sans font-semibold text-lg tracking-tight",
+        "mt-8 scroll-m-20 font-sans font-semibold text-base tracking-tight",
         className
       )}
       id={generateHeadingId(props.children?.toString() ?? "")}
@@ -51,7 +51,7 @@ const components = {
   h4: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h4
       className={cn(
-        "mt-8 scroll-m-20 font-sans font-semibold text-lg tracking-tight",
+        "mt-8 scroll-m-20 font-sans font-semibold text-sm tracking-tight",
         className
       )}
       id={generateHeadingId(props.children?.toString() ?? "")}
@@ -61,7 +61,7 @@ const components = {
   h5: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h5
       className={cn(
-        "mt-8 scroll-m-20 font-semibold text-lg tracking-tight",
+        "mt-8 scroll-m-20 font-semibold text-sm tracking-tight",
         className
       )}
       id={generateHeadingId(props.children?.toString() ?? "")}
@@ -71,7 +71,7 @@ const components = {
   h6: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h6
       className={cn(
-        "mt-8 scroll-m-20 font-semibold text-base tracking-tight",
+        "mt-8 scroll-m-20 font-semibold text-xs tracking-tight",
         className
       )}
       id={generateHeadingId(props.children?.toString() ?? "")}
