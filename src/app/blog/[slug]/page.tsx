@@ -64,23 +64,26 @@ export default async function BlogPage({ params }: BlogPage) {
     <div className="animation-delay-300 container mx-auto w-full max-w-2xl px-4 py-4 sm:px-7">
       {/* Skip to main content link for screen readers */}
       <a
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-primary focus:text-primary-foreground focus:px-4 focus:py-2 focus:rounded"
       >
         Skip to main content
       </a>
 
       {/* Navigation - Desktop */}
       <nav
-        className="fixed top-[10rem] right-auto left-[2rem] mt-0 hidden h-full w-fit justify-start space-y-4 text-[14px] transition xl:top-[3rem] xl:right-auto xl:left-[12rem] xl:block"
         aria-label="Blog navigation"
+        className="fixed top-[10rem] right-auto left-[2rem] mt-0 hidden h-full w-fit justify-start space-y-4 text-[14px] transition xl:top-[3rem] xl:right-auto xl:left-[12rem] xl:block"
       >
         <Link
+          aria-label="Go back to home page"
           className="group flex cursor-pointer items-center gap-2 text-bold text-muted-foreground hover:text-primary"
           href={"/"}
-          aria-label="Go back to home page"
         >
-          <ChevronLeft className="group-hover:-translate-x-1 ml-1 size-4 transition" aria-hidden="true" />{" "}
+          <ChevronLeft
+            aria-hidden="true"
+            className="group-hover:-translate-x-1 ml-1 size-4 transition"
+          />{" "}
           <span className="text-sm">Back Home</span>
         </Link>
       </nav>
@@ -88,13 +91,16 @@ export default async function BlogPage({ params }: BlogPage) {
       {/* Article header */}
       <header className="mb-8">
         {/* Navigation - Mobile */}
-        <nav className="mb-4 xl:hidden" aria-label="Blog navigation">
+        <nav aria-label="Blog navigation" className="mb-4 xl:hidden">
           <Link
+            aria-label="Go back to home page"
             className="group flex cursor-pointer items-center gap-2 text-bold text-muted-foreground hover:text-primary"
             href={"/"}
-            aria-label="Go back to home page"
           >
-            <MoveLeft className="group-hover:-translate-x-1 ml-1 size-4 transition" aria-hidden="true" />{" "}
+            <MoveLeft
+              aria-hidden="true"
+              className="group-hover:-translate-x-1 ml-1 size-4 transition"
+            />{" "}
             <span className="text-xs">Back Home</span>
           </Link>
         </nav>
@@ -102,19 +108,23 @@ export default async function BlogPage({ params }: BlogPage) {
         <h1 className="mb-2 font-medium text-lg lg:leading-[1.1]">
           {post.title}
         </h1>
-        
+
         <div className="flex flex-wrap items-center space-x-1.5 text-muted-foreground text-sm">
           <time className="block" dateTime={post.time}>
             {post.time}
           </time>
-          <div className="text-[0.6rem]" aria-hidden="true">•</div>
+          <div aria-hidden="true" className="text-[0.6rem]">
+            •
+          </div>
           <div>
             <span className="sr-only">Estimated reading time: </span>
             {minutes} minute{minutes > 1 ? "s" : ""} read
           </div>
           {post.isDraft && (
             <>
-              <div className="text-[0.6rem]" aria-hidden="true">•</div>
+              <div aria-hidden="true" className="text-[0.6rem]">
+                •
+              </div>
               <div>
                 <span className="sr-only">Status: </span>
                 Draft
@@ -131,8 +141,14 @@ export default async function BlogPage({ params }: BlogPage) {
         </article>
       </main>
 
-      <div className="my-10 h-[0.5px] w-full shrink-0 border border-dashed" role="separator" aria-hidden="true" />
-      
+      {/** biome-ignore lint/a11y/useFocusableInteractive: * */}
+      <div
+        aria-hidden="true"
+        className="my-10 h-[0.5px] w-full shrink-0 border border-dashed"
+        // biome-ignore lint/a11y/useAriaPropsForRole: *
+        role="separator"
+      />
+
       {/* Blog pagination navigation */}
       <nav aria-label="Blog post navigation">
         <BlogPagination posts={sortedPosts} />
