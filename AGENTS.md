@@ -2,11 +2,11 @@
 
 ## Build/Lint/Test Commands
 
-- **Dev**: `pnpm dev` - Runs content-collections watch + Next.js dev server
-- **Build**: `pnpm build` - Builds content collections + Next.js for production
-- **Lint/Format**: `pnpm fmt` - Runs Biome formatter and linter with auto-fixes
-- **Content**: `pnpm content-collections` - Processes MDX blog posts
-- **Add UI**: `pnpm ui add [component]` - Adds shadcn/ui components
+- **Dev**: `bun dev` - Runs content-collections watch + Next.js dev server
+- **Build**: `bun run build` - Builds content collections + Next.js for production
+- **Lint/Format**: `bun fmt` - Runs Biome formatter and linter with auto-fixes
+- **Content**: `bun content-collections` - Processes MDX blog posts
+- **Add UI**: `bun ui add [component]` - Adds shadcn/ui components
 
 ## Code Style & Structure
 

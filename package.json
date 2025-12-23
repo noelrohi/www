@@ -8,7 +8,7 @@
     "content-collections": "content-collections",
     "start": "next start",
     "lint": "ultracite lint",
-    "ui": "pnpm dlx shadcn@latest"
+    "ui": "bunx shadcn@latest"
   },
   "dependencies": {
     "@content-collections/cli": "^0.1.6",
