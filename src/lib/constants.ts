@@ -32,7 +32,7 @@ export const projects = [
     description: "Desktop app that generates UI designs from text descriptions",
     href: "https://github.com/noelrohi/dilag?tab=readme-ov-file#dilag",
     status: "maintained",
-    tech: ["Electron", "AI", "React"],
+    tech: ["Tauri", "Bun", "React", "Rust"],
   },
   {
     title: "calot",
@@ -42,11 +42,11 @@ export const projects = [
     tech: ["Swift", "SwiftUI", "iOS"],
   },
   {
-    title: "kd",
-    description: "K-drama streaming and discovery platform",
-    href: "https://kd.rohi.dev",
+    title: "breakpal",
+    description: "Block distracting apps and build healthier digital habits",
+    href: "https://breakpal.app",
     status: "archived",
-    tech: ["Next.js", "TypeScript"],
+    tech: ["Expo", "React Native", "NativeWind"],
   },
 ] satisfies Project[];
 
