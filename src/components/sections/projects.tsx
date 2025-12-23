@@ -1,47 +1,55 @@
-import { ExternalLink } from "lucide-react";
+"use client";
+
+import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { projects } from "@/lib/constants";
 
 export function Projects() {
-  const projects = [
-    {
-      name: "anirohi",
-      description: "Watch anime online with no ads",
-      url: "https://github.com/noelrohi/anirohi",
-    },
-    {
-      name: "kd",
-      description: "Stream Korean dramas without interruptions",
-      url: "https://github.com/noelrohi/kd",
-    },
-    {
-      name: "agentc",
-      description: "Directory of AI-powered tools and products",
-      url: "https://github.com/noelrohi/agentc",
-    },
-  ];
-
   return (
-    <section className="space-y-4">
-      <h2 className="flex items-center gap-2 font-semibold text-base">
-        projects <span className="text-foreground/70">🛠️</span>
-      </h2>
-      <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-        {projects.map((project) => (
-          <Link
-            className="group space-y-2 border border-border/50 p-3 transition-colors hover:bg-accent/50"
-            href={project.url}
-            key={project.name}
-            rel="noopener noreferrer"
-            target="_blank"
+    <motion.section
+      className="space-y-6"
+      initial={{ opacity: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true, margin: "-100px" }}
+      whileInView={{ opacity: 1 }}
+    >
+      <motion.h2
+        className="font-mono text-muted-foreground text-xs uppercase tracking-widest"
+        initial={{ opacity: 0, y: 10 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        whileInView={{ opacity: 1, y: 0 }}
+      >
+        Projects
+      </motion.h2>
+
+      <div className="space-y-1">
+        {projects.map((project, index) => (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            key={project.title}
+            transition={{ duration: 0.4, delay: index * 0.05 }}
+            viewport={{ once: true }}
+            whileInView={{ opacity: 1, y: 0 }}
           >
-            <h3 className="flex items-center gap-1 font-medium text-sm group-hover:underline">
-              {project.name}
-              <ExternalLink className="h-3 w-3 opacity-0 transition-opacity group-hover:opacity-100" />
-            </h3>
-            <p className="text-foreground/70 text-xs">{project.description}</p>
-          </Link>
+            <Link
+              className="group flex items-center justify-between py-3 transition-colors hover:text-primary"
+              href={project.href}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <div className="space-y-0.5">
+                <h3 className="font-serif text-lg">{project.title}</h3>
+                <p className="text-muted-foreground text-sm">
+                  {project.description}
+                </p>
+              </div>
+              <ArrowUpRight className="h-4 w-4 shrink-0 opacity-0 transition-opacity group-hover:opacity-100" />
+            </Link>
+          </motion.div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }

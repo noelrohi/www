@@ -3,51 +3,83 @@ interface Project {
   title: string;
   description: string;
   status: "wip" | "maintained" | "archived";
+  tech: string[];
 }
 
 interface WorkExperience {
   company: string;
+  companyUrl?: string;
   status?: string;
   position: string;
+  period?: string;
+}
+
+interface Skill {
+  name: string;
+  category: "frontend" | "mobile" | "ai" | "tools";
 }
 
 export const projects = [
   {
-    title: "agentc.directory",
-    description: "a directory of agentic products.",
-    href: "https://agentc.directory?utm_source=noelrohi.com&utm_medium=referral",
-    status: "maintained",
-  },
-  {
-    title: "thr",
-    description: "threads clone.",
-    href: "https://thr.rohi.dev",
-    status: "archived",
-  },
-  {
     title: "anirohi",
-    description: "anime watching platform.",
-    href: "https://ani.rohi.dev",
-    status: "archived",
+    description: "Like Netflix but for anime only - free & no ads",
+    href: "https://anirohi.xyz",
+    status: "maintained",
+    tech: ["Next.js", "TypeScript", "Tailwind"],
+  },
+  {
+    title: "dilag",
+    description: "Desktop app that generates UI designs from text descriptions",
+    href: "https://github.com/noelrohi/dilag?tab=readme-ov-file#dilag",
+    status: "maintained",
+    tech: ["Electron", "AI", "React"],
+  },
+  {
+    title: "calot",
+    description: "iOS calorie tracking app built with SwiftUI",
+    href: "https://apps.apple.com/us/app/calot-calorie-tracker/id6754517412",
+    status: "maintained",
+    tech: ["Swift", "SwiftUI", "iOS"],
   },
   {
     title: "kd",
-    description: "kdrama watching platform.",
+    description: "K-drama streaming and discovery platform",
     href: "https://kd.rohi.dev",
     status: "archived",
+    tech: ["Next.js", "TypeScript"],
   },
 ] satisfies Project[];
 
 export const workExperience = [
   {
-    company: "ScaleForge",
+    company: "High Output Ventures",
+    companyUrl: "https://hov.co",
     status: "Present",
-    position: "Frontend Engineer",
+    position: "Software Engineer",
+    period: "2024 - Present",
   },
   {
     company: "CaPEx",
     position: "Web Developer",
+    period: "2023 - 2024",
   },
 ] satisfies WorkExperience[];
+
+export const skills = [
+  { name: "React", category: "frontend" },
+  { name: "Next.js", category: "frontend" },
+  { name: "TypeScript", category: "frontend" },
+  { name: "Tailwind CSS", category: "frontend" },
+  { name: "Swift", category: "mobile" },
+  { name: "SwiftUI", category: "mobile" },
+  { name: "React Native", category: "mobile" },
+  { name: "Claude", category: "ai" },
+  { name: "LLMs", category: "ai" },
+  { name: "Prompt Engineering", category: "ai" },
+  { name: "Agentic Coding", category: "ai" },
+  { name: "Git", category: "tools" },
+  { name: "Figma", category: "tools" },
+  { name: "Vercel", category: "tools" },
+] satisfies Skill[];
 
 export const projectURL = "https://noelrohi.com";

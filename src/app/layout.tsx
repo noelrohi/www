@@ -1,10 +1,27 @@
 import { projectURL } from "@/lib/constants";
-import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
-import { GeistMono } from "geist/font/mono";
-import { GeistSans } from "geist/font/sans";
 import type { Metadata, Viewport } from "next";
 import { ThemeProvider } from "next-themes";
+import { IBM_Plex_Mono, Newsreader, Outfit } from "next/font/google";
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+  display: "swap",
+});
+
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  variable: "--font-newsreader",
+  display: "swap",
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-ibm-plex-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(projectURL),
@@ -12,10 +29,12 @@ export const metadata: Metadata = {
     default: "noel rohi",
     template: "%s | noel rohi",
   },
-  description: "a vibe coder, prompt engineer, context engineer, whatever",
+  description:
+    "Software Engineer building modern web apps, mobile experiences, and AI-assisted tools.",
   openGraph: {
     title: "noel rohi",
-    description: "a vibe coder, prompt engineer, context engineer, whatever",
+    description:
+      "Software Engineer building modern web apps, mobile experiences, and AI-assisted tools.",
     url: projectURL,
     siteName: "noel rohi",
     locale: "en_US",
@@ -54,7 +73,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* <script src="https://unpkg.com/react-scan/dist/auto.global.js" async /> */}
         <script
           defer
           id="stonks"
@@ -62,11 +80,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          GeistSans.variable,
-          GeistMono.variable
-        )}
+        className={`min-h-screen bg-background antialiased ${outfit.variable} ${newsreader.variable} ${ibmPlexMono.variable}`}
       >
         <ThemeProvider
           attribute="class"

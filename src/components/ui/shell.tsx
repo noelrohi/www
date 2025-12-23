@@ -8,13 +8,7 @@ export function ShellSection({
   ...props
 }: React.HTMLAttributes<HTMLDivElement> & { index: number }) {
   return (
-    <section
-      className={cn(
-        `space-y-4 text-sm`,
-        className
-      )}
-      {...props}
-    >
+    <section className={cn("space-y-4 text-sm", className)} {...props}>
       <h2 className="font-medium text-[15px]">{title}</h2>
       {children}
     </section>

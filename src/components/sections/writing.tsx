@@ -10,8 +10,8 @@ export function Writing() {
           posts <span className="text-foreground/70">📝</span>
         </h2>
         <Link
-          href="/posts"
           className="text-foreground/70 text-xs hover:text-foreground hover:underline"
+          href="/posts"
         >
           View all
         </Link>
@@ -24,13 +24,17 @@ export function Writing() {
             key={post._meta.path}
           >
             <div className="flex items-start justify-between gap-4">
-              <div className="flex-1 min-w-0">
+              <div className="min-w-0 flex-1">
                 <h3 className="font-medium text-sm group-hover:underline">
                   {post.title}
                 </h3>
-                <p className="text-foreground/70 text-xs mt-0.5">{post.description}</p>
+                <p className="mt-0.5 text-foreground/70 text-xs">
+                  {post.description}
+                </p>
               </div>
-              <time className="text-foreground/60 text-xs shrink-0">{post.time}</time>
+              <time className="shrink-0 text-foreground/60 text-xs">
+                {post.time}
+              </time>
             </div>
           </Link>
         ))}

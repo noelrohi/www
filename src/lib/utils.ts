@@ -8,7 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 
 function parseDate(dateString: string): Date {
   // Remove ordinal suffixes (1st, 2nd, 3rd, 4th, etc.)
-  const cleanDate = dateString.replace(/(\d+)(st|nd|rd|th)/g, '$1');
+  const cleanDate = dateString.replace(/(\d+)(st|nd|rd|th)/g, "$1");
   return new Date(cleanDate);
 }
 
