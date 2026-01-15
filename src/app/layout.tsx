@@ -1,25 +1,12 @@
 import { projectURL } from "@/lib/constants";
 import "@/styles/globals.css";
 import type { Metadata, Viewport } from "next";
+import { Rubik } from "next/font/google";
 import { ThemeProvider } from "next-themes";
-import { IBM_Plex_Mono, Newsreader, Outfit } from "next/font/google";
 
-const outfit = Outfit({
+const rubik = Rubik({
   subsets: ["latin"],
-  variable: "--font-outfit",
-  display: "swap",
-});
-
-const newsreader = Newsreader({
-  subsets: ["latin"],
-  variable: "--font-newsreader",
-  display: "swap",
-});
-
-const ibmPlexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-ibm-plex-mono",
+  variable: "--font-rubik",
   display: "swap",
 });
 
@@ -80,7 +67,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`min-h-screen bg-background antialiased ${outfit.variable} ${newsreader.variable} ${ibmPlexMono.variable}`}
+        className={`min-h-screen bg-background antialiased ${rubik.variable}`}
       >
         <ThemeProvider
           attribute="class"

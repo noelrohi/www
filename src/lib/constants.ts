@@ -30,7 +30,7 @@ export const projects = [
   {
     title: "dilag",
     description: "Desktop app that generates UI designs from text descriptions",
-    href: "https://github.com/noelrohi/dilag?tab=readme-ov-file#dilag",
+    href: "https://dilag.noelrohi.com",
     status: "maintained",
     tech: ["Tauri", "Bun", "React", "Rust"],
   },

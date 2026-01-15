@@ -4,44 +4,32 @@ import { sortedPosts } from "@/lib/utils";
 
 function AllPosts() {
   return (
-    <section className="space-y-4">
-      <div className="flex items-center justify-between">
-        <h2 className="flex items-center gap-2 font-semibold text-base">
-          All Posts <span className="text-foreground/70">📝</span>
-        </h2>
-        <Link
-          className="text-foreground/70 text-xs hover:text-foreground hover:underline"
-          href="/"
-        >
-          ← Back to home
-        </Link>
-      </div>
-      <div className="space-y-3">
+    <section className="space-y-6">
+      <h2 className="text-muted-foreground text-sm">All Posts</h2>
+      <div className="space-y-4">
         {sortedPosts.map((post) => (
           <Link
-            className="group block border border-border/50 p-3 transition-colors hover:bg-accent/50"
+            className="group block"
             href={`/blog/${post._meta.path}`}
             key={post._meta.path}
           >
-            <div className="flex items-start justify-between gap-4">
-              <div className="min-w-0 flex-1">
-                <h3 className="font-medium text-sm group-hover:underline">
-                  {post.title}
-                </h3>
-                <p className="mt-0.5 text-foreground/70 text-xs">
-                  {post.description}
-                </p>
-              </div>
-              <div className="flex shrink-0 items-center gap-2 text-foreground/60 text-xs">
+            <div className="flex items-baseline justify-between gap-4">
+              <h3 className="font-medium transition-colors group-hover:text-primary">
+                {post.title}
+              </h3>
+              <div className="flex shrink-0 items-center gap-2 text-muted-foreground text-sm">
                 <time>{post.time}</time>
                 {post.isDraft && (
                   <>
-                    <span>•</span>
-                    <span className="text-orange-500">Draft</span>
+                    <span>·</span>
+                    <span className="text-primary">Draft</span>
                   </>
                 )}
               </div>
             </div>
+            <p className="mt-1 text-muted-foreground text-sm">
+              {post.description}
+            </p>
           </Link>
         ))}
       </div>
@@ -51,13 +39,9 @@ function AllPosts() {
 
 export default function PostsPage() {
   return (
-    <div className="flex h-svh flex-col overflow-hidden">
-      <div className="flex-1 overflow-y-auto">
-        <section className="container mx-auto max-w-2xl space-y-8 px-4 md:px-6">
-          <ProfileHeader />
-          <AllPosts />
-        </section>
-      </div>
-    </div>
+    <section className="mx-auto max-w-lg space-y-12 px-6 pb-16">
+      <ProfileHeader />
+      <AllPosts />
+    </section>
   );
 }

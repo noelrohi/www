@@ -2,74 +2,28 @@
 @import "tw-animate-css";
 
 :root {
-  --background: hsl(40 33% 98%);
-  --foreground: hsl(20 10% 12%);
-  --muted: hsl(40 20% 94%);
-  --muted-foreground: hsl(20 5% 45%);
-  --popover: hsl(40 33% 98%);
-  --popover-foreground: hsl(20 10% 12%);
-  --card: hsl(40 25% 96%);
-  --card-foreground: hsl(20 10% 12%);
-  --border: hsl(30 15% 88%);
-  --input: hsl(30 15% 88%);
-  --primary: hsl(16 65% 52%);
-  --primary-foreground: hsl(40 33% 98%);
-  --secondary: hsl(40 20% 94%);
-  --secondary-foreground: hsl(20 10% 12%);
-  --accent: hsl(16 65% 52%);
-  --accent-foreground: hsl(40 33% 98%);
-  --destructive: hsl(0 84.2% 60.2%);
-  --destructive-foreground: hsl(0 0% 98%);
-  --ring: hsl(16 65% 52%);
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(0 0% 9%);
+  --muted: hsl(0 0% 96%);
+  --muted-foreground: hsl(0 0% 45%);
+  --border: hsl(0 0% 90%);
+  --input: hsl(0 0% 90%);
+  --primary: hsl(262 60% 50%);
+  --primary-foreground: hsl(0 0% 100%);
+  --ring: hsl(262 60% 50%);
   --radius: 0.5rem;
-  --scrollbar-thumb: hsl(30 10% 70%);
-  --scrollbar-track: transparent;
-  --selection-background: hsl(16 65% 52% / 0.2);
-  --selection-foreground: hsl(16 65% 40%);
-  --kbd-background: hsl(40 20% 90%);
-  --kbd-foreground: hsl(20 10% 20%);
-  --kbd-border: hsl(30 15% 80%);
-  --highlight-background: hsl(16 65% 52% / 0.15);
-  --highlight-foreground: hsl(16 65% 45%);
-  --radius-small: 4px;
-  --radius-base: 8px;
-  --radius-large: 12px;
-  --chart-1: hsl(16 65% 52%);
-  --chart-2: hsl(173 58% 39%);
-  --chart-3: hsl(197 37% 24%);
-  --chart-4: hsl(43 74% 66%);
-  --chart-5: hsl(27 87% 67%);
 }
 
 .dark {
-  --background: hsl(20 10% 6%);
-  --foreground: hsl(40 20% 92%);
-  --muted: hsl(20 8% 14%);
-  --muted-foreground: hsl(30 10% 55%);
-  --popover: hsl(20 10% 8%);
-  --popover-foreground: hsl(40 20% 92%);
-  --card: hsl(20 8% 10%);
-  --card-foreground: hsl(40 20% 92%);
-  --border: hsl(20 8% 18%);
-  --input: hsl(20 8% 18%);
-  --primary: hsl(18 70% 58%);
-  --primary-foreground: hsl(20 10% 6%);
-  --secondary: hsl(20 8% 14%);
-  --secondary-foreground: hsl(40 20% 92%);
-  --accent: hsl(18 70% 58%);
-  --accent-foreground: hsl(20 10% 6%);
-  --destructive: hsl(0 62.8% 45%);
-  --destructive-foreground: hsl(0 0% 98%);
-  --ring: hsl(18 70% 58%);
-  --selection-background: hsl(18 70% 58% / 0.25);
-  --selection-foreground: hsl(18 70% 70%);
-  --highlight-background: hsl(18 70% 58% / 0.2);
-  --highlight-foreground: hsl(18 70% 65%);
-  --chart-1: hsl(18 70% 58%);
-  --chart-2: hsl(160 60% 45%);
-  --chart-3: hsl(30 80% 55%);
-  --chart-4: hsl(280 65% 60%);
-  --chart-5: hsl(340 75% 55%);
+  --background: hsl(0 0% 4%);
+  --foreground: hsl(0 0% 93%);
+  --muted: hsl(0 0% 12%);
+  --muted-foreground: hsl(0 0% 55%);
+  --border: hsl(0 0% 18%);
+  --input: hsl(0 0% 18%);
+  --primary: hsl(262 60% 65%);
+  --primary-foreground: hsl(0 0% 4%);
+  --ring: hsl(262 60% 65%);
 }
 
 @theme inline {
@@ -77,39 +31,13 @@
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
   --color-ring: var(--ring);
-  --color-selection-background: var(--selection-background);
-  --color-selection-foreground: var(--selection-foreground);
-  --color-scrollbar-thumb: var(--scrollbar-thumb);
-  --color-scrollbar-track: var(--scrollbar-track);
-  --color-kbd-background: var(--kbd-background);
-  --color-kbd-foreground: var(--kbd-foreground);
-  --color-kbd-border: var(--kbd-border);
-  --color-highlight-background: var(--highlight-background);
-  --color-highlight-foreground: var(--highlight-foreground);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
   --radius: var(--radius);
-  --font-sans: var(--font-outfit), system-ui, sans-serif;
-  --font-mono: var(--font-ibm-plex-mono), ui-monospace, monospace;
-  --font-serif: var(--font-newsreader), Georgia, serif;
+  --font-sans: var(--font-rubik), system-ui, sans-serif;
 }
 
 @layer base {
@@ -121,23 +49,10 @@
   }
 }
 
-::-moz-selection {
-  @apply bg-selection-background text-selection-foreground;
-}
-
 ::selection {
-  @apply bg-selection-background text-selection-foreground;
+  @apply bg-primary/20 text-primary;
 }
 
-@media (max-width: 640px) {
-  .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-}
-
-body::-webkit-scrollbar {
-  display: none;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+::-moz-selection {
+  @apply bg-primary/20 text-primary;
 }
