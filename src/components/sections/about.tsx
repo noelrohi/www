@@ -2,6 +2,7 @@ import { MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { ShuffleText } from "@/components/shuffle-text";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export function About() {
   return (
@@ -82,6 +83,8 @@ export function About() {
           </Link>
         </div>
       </div>
+
+      <ThemeToggle />
     </header>
   );
 }
