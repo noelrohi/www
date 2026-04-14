@@ -16,7 +16,16 @@ interface WorkExperience {
 
 interface Skill {
   name: string;
-  category: "frontend" | "mobile" | "ai" | "tools";
+  category:
+    | "frontend"
+    | "mobile"
+    | "backend"
+    | "data"
+    | "infra"
+    | "ai"
+    | "dev"
+    | "collab";
+  preferred?: boolean;
 }
 
 export const projects = [
@@ -66,20 +75,57 @@ export const workExperience = [
 ] satisfies WorkExperience[];
 
 export const skills = [
-  { name: "React", category: "frontend" },
-  { name: "Next.js", category: "frontend" },
-  { name: "TypeScript", category: "frontend" },
-  { name: "Tailwind CSS", category: "frontend" },
-  { name: "Swift", category: "mobile" },
-  { name: "SwiftUI", category: "mobile" },
-  { name: "React Native", category: "mobile" },
-  { name: "Claude", category: "ai" },
-  { name: "LLMs", category: "ai" },
-  { name: "Prompt Engineering", category: "ai" },
-  { name: "Agentic Coding", category: "ai" },
-  { name: "Git", category: "tools" },
-  { name: "Figma", category: "tools" },
-  { name: "Vercel", category: "tools" },
+  { name: "TypeScript", category: "frontend", preferred: true },
+  { name: "React", category: "frontend", preferred: true },
+  { name: "Next.js", category: "frontend", preferred: true },
+  { name: "TanStack Start", category: "frontend" },
+  { name: "TanStack Router", category: "frontend", preferred: true },
+  { name: "Svelte", category: "frontend" },
+  { name: "SolidJS", category: "frontend" },
+  { name: "Vite", category: "frontend" },
+  { name: "Tailwind CSS", category: "frontend", preferred: true },
+  { name: "Swift", category: "mobile", preferred: true },
+  { name: "SwiftUI", category: "mobile", preferred: true },
+  { name: "React Native", category: "mobile", preferred: true },
+  { name: "Expo", category: "mobile", preferred: true },
+  { name: "NativeWind", category: "mobile", preferred: true },
+  { name: "Unistyles", category: "mobile" },
+  { name: "Node.js", category: "backend", preferred: true },
+  { name: "Hono", category: "backend", preferred: true },
+  { name: "tRPC", category: "backend", preferred: true },
+  { name: "Zod", category: "backend", preferred: true },
+  { name: "Better Auth", category: "backend", preferred: true },
+  { name: "Discord.js", category: "backend" },
+  { name: "Python", category: "backend" },
+  { name: "FastAPI", category: "backend" },
+  { name: "PHP", category: "backend" },
+  { name: "PostgreSQL", category: "data", preferred: true },
+  { name: "MySQL", category: "data" },
+  { name: "MongoDB", category: "data" },
+  { name: "SQL", category: "data" },
+  { name: "Drizzle", category: "data", preferred: true },
+  { name: "TanStack Query", category: "data", preferred: true },
+  { name: "Redis", category: "data" },
+  { name: "Cloudflare Workers", category: "infra", preferred: true },
+  { name: "Vercel", category: "infra", preferred: true },
+  { name: "Inngest", category: "infra" },
+  { name: "Trigger.dev", category: "infra" },
+  { name: "Sentry", category: "infra" },
+  { name: "PostHog", category: "infra", preferred: true },
+  { name: "Claude Code", category: "ai", preferred: true },
+  { name: "Codex", category: "ai" },
+  { name: "OpenCode", category: "ai", preferred: true },
+  { name: "Pi", category: "ai" },
+  { name: "OpenRouter", category: "ai" },
+  { name: "Agent Harnesses", category: "ai" },
+  { name: "VS Code", category: "dev", preferred: true },
+  { name: "Git", category: "dev", preferred: true },
+  { name: "GitHub", category: "dev", preferred: true },
+  { name: "Biome", category: "dev", preferred: true },
+  { name: "oxlint", category: "dev" },
+  { name: "Figma", category: "collab", preferred: true },
+  { name: "ClickUp", category: "collab" },
+  { name: "Discord", category: "collab", preferred: true },
 ] satisfies Skill[];
 
 export const projectURL = "https://noelrohi.com";

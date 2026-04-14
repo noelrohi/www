@@ -1,12 +1,18 @@
 import { projectURL } from "@/lib/constants";
 import "@/styles/globals.css";
 import type { Metadata, Viewport } from "next";
-import { Rubik } from "next/font/google";
+import { JetBrains_Mono, Rethink_Sans } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 
-const rubik = Rubik({
+const rethinkSans = Rethink_Sans({
   subsets: ["latin"],
-  variable: "--font-rubik",
+  variable: "--font-rethink-sans",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
   display: "swap",
 });
 
@@ -67,7 +73,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`min-h-screen bg-background antialiased ${rubik.variable}`}
+        className={`min-h-screen bg-background antialiased ${rethinkSans.variable} ${jetbrainsMono.variable}`}
       >
         <ThemeProvider
           attribute="class"

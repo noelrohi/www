@@ -37,7 +37,8 @@
   --color-primary-foreground: var(--primary-foreground);
   --color-ring: var(--ring);
   --radius: var(--radius);
-  --font-sans: var(--font-rubik), system-ui, sans-serif;
+  --font-sans: var(--font-rethink-sans), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 }
 
 @layer base {

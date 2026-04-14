@@ -25,7 +25,8 @@
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "reading-time-estimator": "^1.11.0",
-    "tailwind-merge": "^3.0.2"
+    "tailwind-merge": "^3.0.2",
+    "use-scramble": "^2.2.15"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.1.2",

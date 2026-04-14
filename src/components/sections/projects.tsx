@@ -1,34 +1,54 @@
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { projects } from "@/lib/constants";
+import { cn } from "@/lib/utils";
+
+const statusDot: Record<string, string> = {
+  maintained: "text-emerald-600 dark:text-emerald-400",
+  wip: "text-amber-600 dark:text-amber-400",
+  archived: "text-muted-foreground/50",
+};
 
 export function Projects() {
   return (
-    <section className="space-y-6">
-      <h2 className="text-muted-foreground text-sm">Projects</h2>
+    <section className="space-y-3">
+      <h2 className="font-mono text-muted-foreground text-[11px] uppercase tracking-[0.2em]">
+        Selected Work
+      </h2>
 
-      <div className="space-y-4">
+      <ul className="divide-y divide-border/60">
         {projects.map((project) => (
-          <article key={project.title}>
+          <li key={project.title}>
             <Link
-              className="group flex items-start justify-between gap-4 transition-colors"
+              className="group flex items-baseline justify-between gap-4 py-2.5"
               href={project.href}
               rel="noopener noreferrer"
               target="_blank"
             >
-              <div className="space-y-1">
-                <span className="font-medium transition-colors group-hover:text-primary">
+              <div className="flex min-w-0 items-baseline gap-2">
+                <span
+                  aria-hidden
+                  className={cn("text-[10px]", statusDot[project.status])}
+                >
+                  ●
+                </span>
+                <span className="font-medium text-[14px] tracking-tight transition-colors group-hover:text-primary">
                   {project.title}
                 </span>
-                <p className="text-muted-foreground text-sm">
-                  {project.description}
-                </p>
+                <span className="truncate text-[13px] text-muted-foreground">
+                  — {project.description}
+                </span>
               </div>
-              <ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
+              <div className="flex shrink-0 items-baseline gap-2">
+                <span className="hidden font-mono text-[10px] text-muted-foreground/60 uppercase tracking-wider sm:inline">
+                  {project.tech[0]}
+                </span>
+                <ArrowUpRight className="h-3.5 w-3.5 text-muted-foreground/50 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
+              </div>
             </Link>
-          </article>
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 }
