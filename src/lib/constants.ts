@@ -25,6 +25,7 @@ interface Skill {
     | "ai"
     | "dev"
     | "collab";
+  href?: string;
   preferred?: boolean;
 }
 
@@ -41,7 +42,7 @@ export const projects = [
     description: "Desktop app that generates UI designs from text descriptions",
     href: "https://dilag.noelrohi.com",
     status: "maintained",
-    tech: ["Tauri", "Bun", "React", "Rust"],
+    tech: ["Electron", "Bun", "React", "TypeScript"],
   },
   {
     title: "calot",
@@ -112,13 +113,21 @@ export const skills = [
   { name: "Trigger.dev", category: "infra" },
   { name: "Sentry", category: "infra" },
   { name: "PostHog", category: "infra", preferred: true },
-  { name: "Claude Code", category: "ai", preferred: true },
-  { name: "Codex", category: "ai" },
-  { name: "OpenCode", category: "ai", preferred: true },
-  { name: "Pi", category: "ai" },
+  { name: "Claude Code", category: "ai" },
+  { name: "Codex", category: "ai", preferred: true },
+  { name: "OpenCode", category: "ai" },
+  { name: "Pi", category: "ai", preferred: true },
   { name: "OpenRouter", category: "ai" },
   { name: "Agent Harnesses", category: "ai" },
-  { name: "VS Code", category: "dev", preferred: true },
+  {
+    name: "Herdr",
+    category: "ai",
+    href: "https://herdr.dev/",
+    preferred: true,
+  },
+  { name: "Zed", category: "dev", preferred: true },
+  { name: "Ghostty", category: "dev", preferred: true },
+  { name: "VS Code", category: "dev" },
   { name: "Git", category: "dev", preferred: true },
   { name: "GitHub", category: "dev", preferred: true },
   { name: "Biome", category: "dev", preferred: true },

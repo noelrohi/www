@@ -4,16 +4,17 @@ import { skills } from "@/lib/constants";
 const categoryLabels: Record<string, string> = {
   frontend: "Frontend",
   backend: "Backend",
+  mobile: "Mobile",
   ai: "AI & Agents",
 };
 
-const previewOrder = ["frontend", "backend", "ai"] as const;
+const previewOrder = ["frontend", "backend", "mobile", "ai"] as const;
 
 export function Stack() {
   return (
     <section className="space-y-5">
       <div className="flex items-baseline justify-between">
-        <h2 className="font-mono text-muted-foreground text-[11px] uppercase tracking-[0.2em]">
+        <h2 className="font-mono text-[11px] text-muted-foreground uppercase tracking-[0.2em]">
           Stack
         </h2>
         <Link
@@ -27,7 +28,7 @@ export function Stack() {
       <div className="space-y-4">
         {previewOrder.map((category) => {
           const items = skills.filter(
-            (s) => s.category === category && s.preferred,
+            (s) => s.category === category && s.preferred
           );
           return (
             <div className="space-y-2" key={category}>
