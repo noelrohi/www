@@ -45,18 +45,11 @@ export const projects = [
     tech: ["Electron", "Bun", "React", "TypeScript"],
   },
   {
-    title: "calot",
-    description: "iOS calorie tracking app built with SwiftUI",
-    href: "https://apps.apple.com/us/app/calot-calorie-tracker/id6754517412",
+    title: "ubos",
+    description: "Menu bar app for Codex, Cursor, and OpenCode AI usage",
+    href: "https://ubos.noelrohi.com",
     status: "maintained",
-    tech: ["Swift", "SwiftUI", "iOS"],
-  },
-  {
-    title: "breakpal",
-    description: "Block distracting apps and build healthier digital habits",
-    href: "https://breakpal.app",
-    status: "archived",
-    tech: ["Expo", "React Native", "NativeWind"],
+    tech: ["Swift", "SwiftUI", "macOS"],
   },
 ] satisfies Project[];
 
