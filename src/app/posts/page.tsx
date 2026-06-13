@@ -11,27 +11,27 @@ export const metadata: Metadata = {
 function parseYear(time: string): string {
   const cleaned = time.replace(/(\d+)(st|nd|rd|th)/g, "$1");
   const date = new Date(cleaned);
-  return Number.isNaN(date.getTime())
-    ? "—"
-    : date.getFullYear().toString();
+  return Number.isNaN(date.getTime()) ? "—" : date.getFullYear().toString();
 }
 
 export default function PostsPage() {
   const grouped = sortedPosts.reduce<Record<string, typeof sortedPosts>>(
     (acc, post) => {
       const year = parseYear(post.time);
-      if (!acc[year]) acc[year] = [];
+      if (!acc[year]) {
+        acc[year] = [];
+      }
       acc[year].push(post);
       return acc;
     },
-    {},
+    {}
   );
 
   const years = Object.keys(grouped).sort((a, b) => Number(b) - Number(a));
 
   return (
-    <div className="mx-auto max-w-3xl px-6 pt-6 pb-16 md:pt-8">
-      <div className="mb-8 flex items-baseline justify-between">
+    <div className="mx-auto max-w-3xl px-4 pt-6 pb-16 sm:px-6 md:pt-8">
+      <div className="mb-8 flex items-baseline justify-between gap-4">
         <Link
           className="inline-flex items-center gap-1.5 font-mono text-[11px] text-muted-foreground uppercase tracking-wider transition-colors hover:text-primary"
           href="/"
@@ -47,21 +47,21 @@ export default function PostsPage() {
       <div className="space-y-8">
         {years.map((year) => (
           <section
-            className="grid grid-cols-[60px_1fr] gap-4 border-border/60 border-t pt-4 md:gap-8"
+            className="grid gap-3 border-border/60 border-t pt-4 sm:grid-cols-[60px_1fr] sm:gap-4 md:gap-8"
             key={year}
           >
-            <h2 className="pt-1 font-mono text-[11px] text-muted-foreground uppercase tracking-[0.18em] tabular-nums">
+            <h2 className="pt-1 font-mono text-[11px] text-muted-foreground uppercase tabular-nums tracking-[0.18em]">
               {year}
             </h2>
             <ul className="divide-y divide-border/60">
               {grouped[year].map((post) => (
                 <li key={post._meta.path}>
                   <Link
-                    className="group flex items-baseline justify-between gap-4 py-3"
+                    className="group flex flex-col gap-1 py-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
                     href={`/blog/${post._meta.path}`}
                   >
                     <div className="min-w-0 space-y-0.5">
-                      <div className="flex items-center gap-2">
+                      <div className="flex min-w-0 flex-wrap items-center gap-2">
                         <h3 className="font-medium text-[14px] tracking-tight transition-colors group-hover:text-primary">
                           {post.title}
                         </h3>
@@ -71,13 +71,13 @@ export default function PostsPage() {
                           </span>
                         )}
                       </div>
-                      <p className="truncate text-[13px] text-muted-foreground">
+                      <p className="text-[13px] text-muted-foreground sm:truncate">
                         {post.description}
                       </p>
                     </div>
                     <div className="flex shrink-0 items-baseline gap-2 font-mono text-[11px] text-muted-foreground/70 tabular-nums">
                       <time>{post.time}</time>
-                      <ArrowUpRight className="h-3 w-3 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
+                      <ArrowUpRight className="group-hover:-translate-y-0.5 h-3 w-3 transition-all group-hover:translate-x-0.5 group-hover:text-primary" />
                     </div>
                   </Link>
                 </li>

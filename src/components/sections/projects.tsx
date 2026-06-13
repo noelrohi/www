@@ -11,8 +11,8 @@ const statusDot: Record<string, string> = {
 
 export function Projects() {
   return (
-    <section className="space-y-3">
-      <h2 className="font-mono text-muted-foreground text-[11px] uppercase tracking-[0.2em]">
+    <section className="space-y-2.5 sm:space-y-3">
+      <h2 className="font-mono text-[11px] text-muted-foreground uppercase tracking-[0.2em]">
         Selected Work
       </h2>
 
@@ -20,30 +20,31 @@ export function Projects() {
         {projects.map((project) => (
           <li key={project.title}>
             <Link
-              className="group flex items-baseline justify-between gap-4 py-2.5"
+              className="group flex items-start justify-between gap-3 py-2.5 sm:items-baseline sm:gap-4"
               href={project.href}
               rel="noopener noreferrer"
               target="_blank"
             >
-              <div className="flex min-w-0 items-baseline gap-2">
+              <div className="grid min-w-0 flex-1 grid-cols-[auto_1fr] items-baseline gap-x-2 gap-y-0.5 sm:flex sm:gap-2">
                 <span
                   aria-hidden
                   className={cn("text-[10px]", statusDot[project.status])}
                 >
                   ●
                 </span>
-                <span className="font-medium text-[14px] tracking-tight transition-colors group-hover:text-primary">
+                <span className="min-w-0 font-medium text-[14px] tracking-tight transition-colors group-hover:text-primary">
                   {project.title}
                 </span>
-                <span className="truncate text-[13px] text-muted-foreground">
-                  — {project.description}
+                <span className="col-start-2 text-[13px] text-muted-foreground sm:truncate">
+                  <span className="hidden sm:inline">— </span>
+                  {project.description}
                 </span>
               </div>
-              <div className="flex shrink-0 items-baseline gap-2">
+              <div className="flex shrink-0 items-baseline gap-2 pt-0.5 sm:pt-0">
                 <span className="hidden font-mono text-[10px] text-muted-foreground/60 uppercase tracking-wider sm:inline">
                   {project.tech[0]}
                 </span>
-                <ArrowUpRight className="h-3.5 w-3.5 text-muted-foreground/50 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
+                <ArrowUpRight className="group-hover:-translate-y-0.5 h-3.5 w-3.5 text-muted-foreground/50 transition-all group-hover:translate-x-0.5 group-hover:text-primary" />
               </div>
             </Link>
           </li>

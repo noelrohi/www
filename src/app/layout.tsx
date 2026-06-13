@@ -2,6 +2,7 @@ import { projectURL } from "@/lib/constants";
 import "@/styles/globals.css";
 import type { Metadata, Viewport } from "next";
 import { JetBrains_Mono, Rethink_Sans } from "next/font/google";
+import Script from "next/script";
 import { ThemeProvider } from "next-themes";
 
 const rethinkSans = Rethink_Sans({
@@ -66,6 +67,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {process.env.NODE_ENV === "development" && (
+          <Script
+            crossOrigin="anonymous"
+            src="//unpkg.com/react-grab/dist/index.global.js"
+            strategy="beforeInteractive"
+          />
+        )}
         <script
           defer
           id="stonks"
@@ -81,7 +89,7 @@ export default function RootLayout({
           disableTransitionOnChange
           enableSystem
         >
-          <main className="mx-auto w-full py-4 md:py-6">{children}</main>
+          <main className="mx-auto w-full py-2 md:py-6">{children}</main>
         </ThemeProvider>
       </body>
     </html>

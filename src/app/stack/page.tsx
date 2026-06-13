@@ -32,8 +32,8 @@ const categoryOrder = [
 
 export default function StackPage() {
   return (
-    <div className="mx-auto max-w-3xl px-6 pt-6 pb-8 md:pt-8">
-      <div className="mb-6 flex items-baseline justify-between">
+    <div className="mx-auto max-w-3xl px-4 pt-6 pb-8 sm:px-6 md:pt-8">
+      <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-baseline sm:justify-between">
         <Link
           className="inline-flex items-center gap-1.5 font-mono text-[11px] text-muted-foreground uppercase tracking-wider transition-colors hover:text-primary"
           href="/"
@@ -41,7 +41,7 @@ export default function StackPage() {
           <ArrowLeft className="h-3 w-3" />
           Back
         </Link>
-        <div className="flex items-center gap-3 font-mono text-[11px] text-muted-foreground/60 uppercase tracking-wider">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[11px] text-muted-foreground/60 uppercase tracking-wider">
           <span className="flex items-center gap-1.5">
             <span className="inline-block h-2 w-2 rounded-sm border border-primary/40 bg-primary/20" />
             Daily driver
@@ -58,7 +58,7 @@ export default function StackPage() {
           }
           return (
             <section
-              className="grid grid-cols-[88px_1fr] items-baseline gap-4 border-border/60 border-t pt-3"
+              className="grid gap-2 border-border/60 border-t pt-3 sm:grid-cols-[88px_1fr] sm:items-baseline sm:gap-4"
               key={category}
             >
               <h2 className="font-mono text-[11px] text-muted-foreground uppercase tracking-[0.18em]">
